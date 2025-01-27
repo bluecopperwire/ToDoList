@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="535.0" prefWidth="703.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.todo.todolist.MainController">
+   <children>
+      <BorderPane prefHeight="535.0" prefWidth="760.0">
+         <left>
+            <Pane prefHeight="402.0" prefWidth="210.0" style="-fx-background-color: CFFFFF;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane layoutX="-1.0" layoutY="184.0" prefHeight="353.0" prefWidth="213.0" style="-fx-background-color: #418E8E;">
+                     <children>
+                        <Pane layoutX="-8.0" layoutY="55.0" prefHeight="214.0" prefWidth="219.0" style="-fx-background-color: #0A625D;">
+                           <children>
+                              <Pane layoutX="2.0" layoutY="58.0" prefHeight="244.0" prefWidth="218.0" style="-fx-background-color: #08535B;">
+                                 <children>
+                                    <Button fx:id="options" layoutX="1.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="220.0" style="-fx-background-color: #08535B;" text="Options" textFill="WHITE">
+                                       <font>
+                                          <Font name="Yu Gothic UI Semibold" size="14.0" />
+                                       </font>
+                                       <effect>
+                                          <InnerShadow />
+                                       </effect>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                              <Button fx:id="addEvent" layoutX="6.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="217.0" style="-fx-background-color: #0A625D;" text="Add Event" textFill="WHITE">
+                                 <font>
+                                    <Font name="Yu Gothic UI Semibold" size="14.0" />
+                                 </font>
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect>
+                              </Button>
+                           </children>
+                        </Pane>
+                        <Button fx:id="addTask" layoutX="-4.0" layoutY="-2.0" mnemonicParsing="false" onAction="#addTaskPane" prefHeight="58.0" prefWidth="220.0" style="-fx-background-color: #018E8E;" text="Add Task Entry" textFill="WHITE">
+                           <font>
+                              <Font name="Yu Gothic UI Semibold" size="14.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                        </Button>
+                     </children>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Pane>
+               </children>
+               <effect>
+                  <DropShadow height="11.64" offsetX="10.0" radius="18.1875" spread="0.7" width="63.11" />
+               </effect>
+            </Pane>
+         </left>
+         <center>
+            <Pane prefHeight="535.0" prefWidth="531.0" style="-fx-background-color: #418E8E;" stylesheets="@style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <TabPane layoutY="132.0" prefHeight="406.0" prefWidth="550.0" style="-fx-background-color: #111111;" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab style="-fx-pref-width: 130; -fx-background-color: #06434A; -fx-text-fill: white;" text="              Tasks              ">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox fx:id="vboxTK" prefHeight="362.0" prefWidth="550.0" styleClass="backgroundColor" stylesheets="@style.css" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab style="-fx-pref-width: 130; -fx-background-color: #08535B;" text="           Activities">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox fx:id="vboxAT" prefHeight="362.0" prefWidth="550.0" styleClass="backgroundColor2" stylesheets="@style.css" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab  style="-fx-pref-width: 130; -fx-background-color: #0A625D;" text="            Events">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox fx:id="vboxEV" prefHeight="362.0" prefWidth="550.0" styleClass="backgroundColor3" stylesheets="@style.css" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab style="-fx-pref-width: 135; -fx-background-color: #139A93;" text="          Screen Time">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox fx:id="vboxST" layoutX="-1.0" layoutY="-2.0" prefHeight="363.0" prefWidth="552.0" styleClass="backgroundColor4" stylesheets="@style.css" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                     <effect>
+                        <DropShadow height="30.41" offsetY="10.0" radius="23.465" width="65.45" />
+                     </effect>
+                  </TabPane>
+               </children>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

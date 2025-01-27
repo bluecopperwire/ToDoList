@@ -1,0 +1,35 @@
+package org.todo.todolist;
+
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.time.LocalDate;
+
+
+public class Main extends Application {
+
+    @Override
+    public void start(Stage stage) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainUI.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 760, 538);
+
+        ToDoList list = new ToDoList();
+        MainController mControl = fxmlLoader.getController();
+        mControl.setList(list);
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+
+        launch();
+    }
+}

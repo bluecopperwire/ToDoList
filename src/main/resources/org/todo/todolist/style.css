@@ -1,0 +1,28 @@
+.backgroundColor{
+    -fx-background-color: linear-gradient(to bottom, #06434A, #001F22);
+}
+.backgroundColor2{
+    -fx-background-color: linear-gradient(to bottom, #08535B, #07373C);
+}
+.backgroundColor3{
+    -fx-background-color: linear-gradient(to bottom, #0A625D, #06434A);
+}
+.backgroundColor4{
+    -fx-background-color: linear-gradient(to bottom, #139A93, #0D6964);
+}
+
+.tab{
+    -fx-pref-height: 40;
+}
+.tab .tab-label {
+    -fx-text-fill: white;
+}
+.tab-pane{
+    -fx-border-color: #418E8E;
+    -fx-background-color: #418E8E;
+}
+.tab-header-background{
+    -fx-background-color: #418E8E;
+}
+
+
