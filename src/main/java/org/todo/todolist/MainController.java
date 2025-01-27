@@ -68,6 +68,7 @@ public class MainController implements Initializable {
 
         addTaskEntryController tControl = fxmlLoader.getController();
         tControl.setMainController(this);
+        tControl.list = list;
 
         Stage stage = new Stage();
 
@@ -75,28 +76,29 @@ public class MainController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    public void listUpdater(Tasks task) {
+    public void listUpdater(Tasks task, ToDoList list) {
         list.addTask(task);
         vboxTK.getChildren().clear();
+        System.out.println("Task added");
         for(Tasks t : list.taskList){
-            TaskBuilder build = new TaskBuilder(t);
+            TaskBuilder build = new TaskBuilder(t, list, vboxTK);
             build.addBox(vboxTK);
         }
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
     }
-    public void listUpdater(Activity activity) {
+    public void listUpdater(Activity activity,ToDoList list) {
         list.addActivity(activity);
         vboxAT.getChildren().clear();
         for(Activity a : list.activityTasklist){
-            TaskBuilder build = new TaskBuilder(a);
+            TaskBuilder build = new TaskBuilder(a, list, vboxAT);
             build.addBox(vboxAT);
         }
     }
-    public void listUpdater(Events event) {
+    public void listUpdater(Events event,ToDoList list) {
         list.addEvent(event);
         vboxEV.getChildren().clear();
         for(Events e : list.eventsList){
-            TaskBuilder build = new TaskBuilder(event);
+            TaskBuilder build = new TaskBuilder(event, list, vboxEV);
             build.addBox(vboxEV);
         }
     }
@@ -108,20 +110,20 @@ public class MainController implements Initializable {
     }
     public void taskInitializer(ArrayList<Tasks> task) {
         for(Tasks t : task){
-            TaskBuilder build = new TaskBuilder(t);
+            TaskBuilder build = new TaskBuilder(t, list, vboxTK);
             build.addBox(vboxTK);
         }
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
     }
     public void activityInitializer(ArrayList<Activity> activity) {
         for(Activity a : activity){
-            TaskBuilder build = new TaskBuilder(a);
+            TaskBuilder build = new TaskBuilder(a, list, vboxAT);
             build.addBox(vboxAT);
         }
     }
     public void eventInitialer(ArrayList<Events> event) {
         for(Events e : event){
-            TaskBuilder build = new TaskBuilder(e);
+            TaskBuilder build = new TaskBuilder(e, list, vboxEV);
             build.addBox(vboxEV);
         }
     }

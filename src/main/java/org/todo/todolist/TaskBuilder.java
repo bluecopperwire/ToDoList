@@ -23,42 +23,56 @@ public class TaskBuilder {
     Label deadline = new Label();
     //Image icon = new Image("src");
 
-    public TaskBuilder(Tasks task) {
+    public TaskBuilder(Tasks task, ToDoList list, VBox container) {
         /*
         * Implement Switch case for icons
         * */
         name.setText(task.taskName);
         deadline.setText(task.deadline.toString());
         importance.setText(getImportance(task.taskImportance));
+
         innerBox.getChildren().addAll(importance, name, deadline);
         box.getStyleClass().add("task-hbox");
         innerBox.getStyleClass().add("innerHbox");
+
         box.getChildren().addAll(innerBox, finish, delete);
 
+        finish.setOnAction(event -> deleteTask(task, list, container));
+        delete.setOnAction(event -> deleteTask(task, list, container));
     }
-    public TaskBuilder(Activity activity) {
+    public TaskBuilder(Activity activity, ToDoList list, VBox container) {
         /*
          * Implement Switch case for icons
          * */
         name.setText(activity.taskName);
         deadline.setText(activity.deadline.toString());
         importance.setText(getImportance(activity.taskImportance));
+
         innerBox.getChildren().addAll(importance, name, deadline);
         box.getStyleClass().add("task-hbox");
         innerBox.getStyleClass().add("innerHbox");
+
         box.getChildren().addAll(innerBox, finish, delete);
+
+        finish.setOnAction(event -> deleteActivity(activity, list, container));
+        delete.setOnAction(event -> deleteActivity(activity, list, container));
     }
-    public TaskBuilder(Events event) {
+    public TaskBuilder(Events events, ToDoList list, VBox container) {
         /*
          * Implement Switch case for icons
          * */
-        name.setText(event.taskName);
-        deadline.setText(event.deadline.toString());
-        importance.setText(getImportance(event.taskImportance));
+        name.setText(events.taskName);
+        deadline.setText(events.deadline.toString());
+        importance.setText(getImportance(events.taskImportance));
+
         innerBox.getChildren().addAll(importance, name, deadline);
         box.getStyleClass().add("task-hbox");
         innerBox.getStyleClass().add("innerHbox");
+
         box.getChildren().addAll(innerBox, finish, delete);
+
+        finish.setOnAction(event -> deleteEvent(events, list, container));
+        delete.setOnAction(event -> deleteEvent(events, list, container));
     }
     public void addBox(VBox vbox){
         vbox.setPadding(new Insets(10, 20, 15, 15));
@@ -81,5 +95,23 @@ public class TaskBuilder {
             default:
                 return "Low";
         }
+    }
+    public void deleteTask(Tasks entry, ToDoList list, VBox vbox){
+        box.getChildren().clear();
+        list.taskList.remove(entry);
+        vbox.getChildren().remove(box);
+        SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
+    }
+    public void deleteActivity(Activity entry, ToDoList list, VBox vbox){
+        box.getChildren().clear();
+        list.activityTasklist.remove(entry);
+        vbox.getChildren().remove(box);
+        SaveController.saveActivityToCSV(list.activityTasklist, "activities.csv");
+    }
+    public void deleteEvent(Events entry, ToDoList list, VBox vbox){
+        box.getChildren().clear();
+        list.eventsList.remove(entry);
+        vbox.getChildren().remove(box);
+        SaveController.saveEventsToCSV(list.eventsList, "events.csv");
     }
 }

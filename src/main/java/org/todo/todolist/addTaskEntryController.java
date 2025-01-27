@@ -72,15 +72,15 @@ public class addTaskEntryController extends ToDoList implements Initializable {
         switch(type) {
             case "Default Task":
                 Tasks task = new Tasks(name, hierarchy, date);
-                mController.listUpdater(task);
+                mController.listUpdater(task, list);
                 break;
             case "Activity":
                 Activity activity = new Activity(name, hierarchy, date);
-                mController.listUpdater(activity);
+                mController.listUpdater(activity, list);
                 break;
             case "Event":
                 Events event1 = new Events(name, hierarchy, date);
-                mController.listUpdater(event1);
+                mController.listUpdater(event1, list);
         }
 
     }

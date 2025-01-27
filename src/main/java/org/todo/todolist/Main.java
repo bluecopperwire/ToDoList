@@ -34,11 +34,11 @@ public class Main extends Application {
         mControl.activityInitializer(list.activityTasklist);
 
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
     public static void main(String[] args) {
-
         launch();
     }
 }
