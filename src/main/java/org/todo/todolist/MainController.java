@@ -76,25 +76,53 @@ public class MainController implements Initializable {
         stage.show();
     }
     public void listUpdater(Tasks task) {
-        TaskBuilder build = new TaskBuilder(list, task);
-        build.addBox(vboxTK);
-        list.taskList.add(task);
-        list.taskListImportance.add(task);
+        list.addTask(task);
+        vboxTK.getChildren().clear();
+        for(Tasks t : list.taskList){
+            TaskBuilder build = new TaskBuilder(t);
+            build.addBox(vboxTK);
+        }
+        SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
     }
     public void listUpdater(Activity activity) {
-        TaskBuilder build = new TaskBuilder(list, activity);
-        build.addBox(vboxAT);
-        list.activityTasklist.add(activity);
+        list.addActivity(activity);
+        vboxAT.getChildren().clear();
+        for(Activity a : list.activityTasklist){
+            TaskBuilder build = new TaskBuilder(a);
+            build.addBox(vboxAT);
+        }
     }
     public void listUpdater(Events event) {
-        TaskBuilder build = new TaskBuilder(list, event);
-        build.addBox(vboxEV);
-        list.eventsList.add(event);
+        list.addEvent(event);
+        vboxEV.getChildren().clear();
+        for(Events e : list.eventsList){
+            TaskBuilder build = new TaskBuilder(event);
+            build.addBox(vboxEV);
+        }
     }
 
         @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
             //vboxAT.getChildren().add(new Label("someting"));
         // Consider moving list update logic to a separate method called after FXML injection
+    }
+    public void taskInitializer(ArrayList<Tasks> task) {
+        for(Tasks t : task){
+            TaskBuilder build = new TaskBuilder(t);
+            build.addBox(vboxTK);
+        }
+        SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
+    }
+    public void activityInitializer(ArrayList<Activity> activity) {
+        for(Activity a : activity){
+            TaskBuilder build = new TaskBuilder(a);
+            build.addBox(vboxAT);
+        }
+    }
+    public void eventInitialer(ArrayList<Events> event) {
+        for(Events e : event){
+            TaskBuilder build = new TaskBuilder(e);
+            build.addBox(vboxEV);
+        }
     }
 }

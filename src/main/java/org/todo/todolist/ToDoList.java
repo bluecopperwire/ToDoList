@@ -30,7 +30,6 @@ public class ToDoList {
     LocalDate deadline;
 
     ArrayList<Tasks> taskList = new ArrayList<>();
-    ArrayList<Tasks> taskListImportance = new ArrayList<>();
     ArrayList<Activity> activityTasklist = new ArrayList<>();
     ArrayList<Events> eventsList = new ArrayList<>();
     ArrayList<ToDoList> doneList = new ArrayList<>();
@@ -40,9 +39,7 @@ public class ToDoList {
     }
 
     public void addTask(Tasks task) {
-        taskListImportance.add(task);
         taskList.add(task);
-        Collections.sort(taskListImportance, (a, b) -> Integer.compare(b.taskImportance.getOrder(), a.taskImportance.getOrder()));
 
         for(int i = 0; i<taskList.size()-1; i++){
             for(int j = 0; j<taskList.size()-1 - i; j++) {
@@ -55,11 +52,8 @@ public class ToDoList {
         }
     }
     public void addActivity(Activity activity){
-        taskListImportance.add(new Tasks(activity.taskName, activity.taskImportance, activity.deadline));
         taskList.add(new Tasks(activity.taskName, activity.taskImportance, activity.deadline));
         activityTasklist.add(activity);
-
-        Collections.sort(taskListImportance, (a, b) -> Integer.compare(b.taskImportance.getOrder(), a.taskImportance.getOrder()));
 
         for(int i = 0; i<taskList.size()-1; i++){
             for(int j = 0; j<taskList.size()-1 - i; j++) {
@@ -72,11 +66,9 @@ public class ToDoList {
         }
     }
     public void addEvent(Events event){
-        taskListImportance.add(new Tasks(event.taskName, event.taskImportance, event.deadline));
         taskList.add(new Tasks(event.taskName, event.taskImportance, event.deadline));
         eventsList.add(event);
 
-        Collections.sort(taskListImportance, (a, b) -> Integer.compare(b.taskImportance.getOrder(), a.taskImportance.getOrder()));
 
         for(int i = 0; i<taskList.size()-1; i++){
             for(int j = 0; j<taskList.size()-1 - i; j++) {
@@ -90,7 +82,7 @@ public class ToDoList {
     }
     public void deadLineChecker() {
         LocalDate current = LocalDate.now();
-        for (ToDoList t : taskListImportance) {
+        for (Tasks t : taskList) {
             if (!current.isBefore(t.deadline)) {
                 SwingUtilities.invokeLater(() -> {
                     JOptionPane.showMessageDialog(null, "Deadline reached for: " + t.taskName, "Deadline Notification", JOptionPane.WARNING_MESSAGE);
@@ -98,11 +90,27 @@ public class ToDoList {
                 doneList.add(t);
             }
         }
-        taskListImportance.removeAll(doneList);
-    }
-    public void removeTask(Tasks task) {
-        taskListImportance.remove(task);
-        taskList.remove(task);
+        taskList.removeAll(doneList);
+
+        for (Activity t : activityTasklist) {
+            if (!current.isBefore(t.deadline)) {
+                SwingUtilities.invokeLater(() -> {
+                    JOptionPane.showMessageDialog(null, "Deadline reached for: " + t.taskName, "Deadline Notification", JOptionPane.WARNING_MESSAGE);
+                });
+                doneList.add(t);
+            }
+        }
+        taskList.removeAll(doneList);
+
+        for (Events t : eventsList) {
+            if (!current.isBefore(t.deadline)) {
+                SwingUtilities.invokeLater(() -> {
+                    JOptionPane.showMessageDialog(null, "Deadline reached for: " + t.taskName, "Deadline Notification", JOptionPane.WARNING_MESSAGE);
+                });
+                doneList.add(t);
+            }
+        }
+        taskList.removeAll(doneList);
     }
 }
 

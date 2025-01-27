@@ -25,6 +25,14 @@ public class Main extends Application {
         MainController mControl = fxmlLoader.getController();
         mControl.setList(list);
 
+        list.taskList = SaveController.loadTasksFromCSV("tasks.csv");
+        list.activityTasklist = SaveController.loadActivitiesFromCSV("activities.csv");
+        list.eventsList = SaveController.loadEventsFromCSV("events.csv");
+
+        mControl.taskInitializer(list.taskList);
+        mControl.eventInitialer(list.eventsList);
+        mControl.activityInitializer(list.activityTasklist);
+
         stage.setScene(scene);
         stage.show();
     }

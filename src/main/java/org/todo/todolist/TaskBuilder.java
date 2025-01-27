@@ -11,6 +11,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
+import java.util.ArrayList;
+
 public class TaskBuilder {
     HBox box = new HBox();
     HBox innerBox = new HBox();
@@ -21,7 +23,7 @@ public class TaskBuilder {
     Label deadline = new Label();
     //Image icon = new Image("src");
 
-    public TaskBuilder(ToDoList list, Tasks task) {
+    public TaskBuilder(Tasks task) {
         /*
         * Implement Switch case for icons
         * */
@@ -34,7 +36,7 @@ public class TaskBuilder {
         box.getChildren().addAll(innerBox, finish, delete);
 
     }
-    public TaskBuilder(ToDoList list,Activity activity) {
+    public TaskBuilder(Activity activity) {
         /*
          * Implement Switch case for icons
          * */
@@ -46,7 +48,7 @@ public class TaskBuilder {
         innerBox.getStyleClass().add("innerHbox");
         box.getChildren().addAll(innerBox, finish, delete);
     }
-    public TaskBuilder(ToDoList list,Events event) {
+    public TaskBuilder(Events event) {
         /*
          * Implement Switch case for icons
          * */
@@ -80,5 +82,4 @@ public class TaskBuilder {
                 return "Low";
         }
     }
-
 }

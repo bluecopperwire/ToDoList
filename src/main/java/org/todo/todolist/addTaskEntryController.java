@@ -43,6 +43,7 @@ public class addTaskEntryController extends ToDoList implements Initializable {
     public String priority;
     ToDoList.Hierarchy hierarchy = Hierarchy.LOW;
     MainController mController;
+    ToDoList list;
 
     @FXML
     void AddEntrytolist(ActionEvent event) throws Exception {
