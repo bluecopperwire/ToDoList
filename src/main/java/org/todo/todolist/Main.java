@@ -19,6 +19,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainUI.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 760, 538);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
         ToDoList list = new ToDoList();
         MainController mControl = fxmlLoader.getController();

@@ -1,6 +1,7 @@
 package org.todo.todolist;
 
 import javafx.application.Platform;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -12,6 +13,8 @@ import javafx.scene.paint.Color;
 
 public class TaskBuilder {
     HBox box = new HBox();
+    HBox innerBox = new HBox();
+    Label importance = new Label();
     Label name = new Label();
     Button delete = new Button("Delete");
     Button finish = new Button("Finish");
@@ -24,10 +27,12 @@ public class TaskBuilder {
         * */
         name.setText(task.taskName);
         deadline.setText(task.deadline.toString());
+        importance.setText(getImportance(task.taskImportance));
+        innerBox.getChildren().addAll(importance, name, deadline);
+        box.getStyleClass().add("task-hbox");
+        innerBox.getStyleClass().add("innerHbox");
+        box.getChildren().addAll(innerBox, finish, delete);
 
-        box.setBackground(new Background(new BackgroundFill(Color.valueOf("#FFFFFF"), null, null)));
-
-        box.getChildren().addAll(name, deadline, finish, delete);
     }
     public TaskBuilder(ToDoList list,Activity activity) {
         /*
@@ -35,10 +40,11 @@ public class TaskBuilder {
          * */
         name.setText(activity.taskName);
         deadline.setText(activity.deadline.toString());
-
-        box.setBackground(new Background(new BackgroundFill(Color.valueOf("#FFFFFF"), null, null)));
-
-        box.getChildren().addAll(name, deadline, finish, delete);
+        importance.setText(getImportance(activity.taskImportance));
+        innerBox.getChildren().addAll(importance, name, deadline);
+        box.getStyleClass().add("task-hbox");
+        innerBox.getStyleClass().add("innerHbox");
+        box.getChildren().addAll(innerBox, finish, delete);
     }
     public TaskBuilder(ToDoList list,Events event) {
         /*
@@ -46,16 +52,33 @@ public class TaskBuilder {
          * */
         name.setText(event.taskName);
         deadline.setText(event.deadline.toString());
-
-        box.setBackground(new Background(new BackgroundFill(Color.valueOf("#FFFFFF"), null, null)));
-
-        box.getChildren().addAll(name, deadline, finish, delete);
+        importance.setText(getImportance(event.taskImportance));
+        innerBox.getChildren().addAll(importance, name, deadline);
+        box.getStyleClass().add("task-hbox");
+        innerBox.getStyleClass().add("innerHbox");
+        box.getChildren().addAll(innerBox, finish, delete);
     }
     public void addBox(VBox vbox){
-        vbox.getChildren().clear();
+        vbox.setPadding(new Insets(10, 20, 15, 15));
+        vbox.setSpacing(10);
         Platform.runLater(() -> {
             vbox.getChildren().add(box);
         });
+    }
+    public String getImportance(ToDoList.Hierarchy priority){
+        if(priority == null) return "Low";
+        switch(priority){
+            case LOW:
+                return "Low";
+            case HIGH:
+                return "High";
+            case MEDIUM:
+                return "Medium";
+            case IMPORTANT:
+                return "IMPORTANT";
+            default:
+                return "Low";
+        }
     }
 
 }

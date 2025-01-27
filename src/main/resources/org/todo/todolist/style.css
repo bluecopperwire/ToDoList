@@ -26,3 +26,41 @@
 }
 
 
+.task-hbox {
+    -fx-background-color: rgba(0, 100, 100, 0.5);  /* Light grey background */
+    -fx-padding: 5;               /* Padding inside the box */
+    -fx-spacing: 10;               /* Spacing between children */
+    -fx-border-color: #d0d0d0;     /* Light grey border */
+    -fx-border-width: 1;           /* Border width */
+    -fx-border-radius: 5;          /* Rounded corners */
+    -fx-background-radius: 5;      /* Match rounded corners */
+    -fx-alignment: center-left;
+    -fx-min-width: 525;
+    -fx-max-width: 525;
+    -fx-max-height: 70;
+}
+.innerHbox{
+    -fx-background-color: #139A93;
+    -fx-padding: 10;
+    -fx-spacing: 10;
+    -fx-background-radius: 5;
+    -fx-alignment: center;
+    -fx-min-width: 330;
+    -fx-margin: 10,10,10,10;
+}
+/* Style for the buttons inside the HBox */
+.task-hbox .button {
+    -fx-background-color: #A6E6E3; /* Blue background */
+    -fx-text-fill: black;          /* White text */
+    -fx-border-radius: 5;          /* Rounded corners */
+    -fx-background-radius: 5;
+    -fx-pref-width: 80;
+    -fx-min-width: 80;
+}
+
+/* Hover effect for buttons */
+.task-hbox .button:hover {
+    -fx-background-color: #2980b9; /* Darker blue on hover */
+}
+
+
