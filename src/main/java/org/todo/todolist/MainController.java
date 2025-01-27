@@ -120,11 +120,13 @@ public class MainController implements Initializable {
             TaskBuilder build = new TaskBuilder(a, list, vboxAT);
             build.addBox(vboxAT);
         }
+        SaveController.saveActivityToCSV(list.activityTasklist, "activities.csv");
     }
     public void eventInitialer(ArrayList<Events> event) {
         for(Events e : event){
             TaskBuilder build = new TaskBuilder(e, list, vboxEV);
             build.addBox(vboxEV);
         }
+        SaveController.saveEventsToCSV(list.eventsList, "events.csv");
     }
 }
