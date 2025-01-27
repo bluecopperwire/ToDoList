@@ -52,30 +52,27 @@ public class ToDoList {
         }
     }
     public void addActivity(Activity activity){
-        taskList.add(new Tasks(activity.taskName, activity.taskImportance, activity.deadline));
         activityTasklist.add(activity);
 
-        for(int i = 0; i<taskList.size()-1; i++){
-            for(int j = 0; j<taskList.size()-1 - i; j++) {
-                if (!taskList.get(j).deadline.isBefore(taskList.get(j + 1).deadline)) {
-                    LocalDate temp = taskList.get(j).deadline;
-                    taskList.get(j).deadline = taskList.get(j + 1).deadline;
-                    taskList.get(j + 1).deadline = temp;
+        for(int i = 0; i<activityTasklist.size()-1; i++){
+            for(int j = 0; j<activityTasklist.size()-1 - i; j++) {
+                if (!activityTasklist.get(j).deadline.isBefore(activityTasklist.get(j + 1).deadline)) {
+                    LocalDate temp = activityTasklist.get(j).deadline;
+                    activityTasklist.get(j).deadline = activityTasklist.get(j + 1).deadline;
+                    activityTasklist.get(j + 1).deadline = temp;
                 }
             }
         }
     }
     public void addEvent(Events event){
-        taskList.add(new Tasks(event.taskName, event.taskImportance, event.deadline));
         eventsList.add(event);
 
-
-        for(int i = 0; i<taskList.size()-1; i++){
-            for(int j = 0; j<taskList.size()-1 - i; j++) {
-                if (!taskList.get(j).deadline.isBefore(taskList.get(j + 1).deadline)) {
-                    LocalDate temp = taskList.get(j).deadline;
-                    taskList.get(j).deadline = taskList.get(j + 1).deadline;
-                    taskList.get(j + 1).deadline = temp;
+        for(int i = 0; i<eventsList.size()-1; i++){
+            for(int j = 0; j<eventsList.size()-1 - i; j++) {
+                if (!eventsList.get(j).deadline.isBefore(eventsList.get(j + 1).deadline)) {
+                    LocalDate temp = eventsList.get(j).deadline;
+                    eventsList.get(j).deadline = eventsList.get(j + 1).deadline;
+                    eventsList.get(j + 1).deadline = temp;
                 }
             }
         }
