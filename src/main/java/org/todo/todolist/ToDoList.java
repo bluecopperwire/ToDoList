@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.stream.Collectors;
 
 public class ToDoList {
     public enum Hierarchy{
@@ -40,42 +41,12 @@ public class ToDoList {
 
     public void addTask(Tasks task) {
         taskList.add(task);
-
-        for(int i = 0; i<taskList.size()-1; i++){
-            for(int j = 0; j<taskList.size()-1 - i; j++) {
-                if (!taskList.get(j).deadline.isBefore(taskList.get(j + 1).deadline)) {
-                    LocalDate temp = taskList.get(j).deadline;
-                    taskList.get(j).deadline = taskList.get(j + 1).deadline;
-                    taskList.get(j + 1).deadline = temp;
-                }
-            }
-        }
     }
     public void addActivity(Activity activity){
         activityTasklist.add(activity);
-
-        for(int i = 0; i<activityTasklist.size()-1; i++){
-            for(int j = 0; j<activityTasklist.size()-1 - i; j++) {
-                if (!activityTasklist.get(j).deadline.isBefore(activityTasklist.get(j + 1).deadline)) {
-                    LocalDate temp = activityTasklist.get(j).deadline;
-                    activityTasklist.get(j).deadline = activityTasklist.get(j + 1).deadline;
-                    activityTasklist.get(j + 1).deadline = temp;
-                }
-            }
-        }
     }
     public void addEvent(Events event){
         eventsList.add(event);
-
-        for(int i = 0; i<eventsList.size()-1; i++){
-            for(int j = 0; j<eventsList.size()-1 - i; j++) {
-                if (!eventsList.get(j).deadline.isBefore(eventsList.get(j + 1).deadline)) {
-                    LocalDate temp = eventsList.get(j).deadline;
-                    eventsList.get(j).deadline = eventsList.get(j + 1).deadline;
-                    eventsList.get(j + 1).deadline = temp;
-                }
-            }
-        }
     }
     public void deadLineChecker() {
         LocalDate current = LocalDate.now();
@@ -108,6 +79,40 @@ public class ToDoList {
             }
         }
         taskList.removeAll(doneList);
+    }
+    public void sortByImportance(){
+        Collections.sort(taskList, (t1, t2) -> t1.taskImportance.compareTo(t2.taskImportance));
+        Collections.sort(activityTasklist, (t1, t2) -> t1.taskImportance.compareTo(t2.taskImportance));
+        Collections.sort(eventsList, (t1, t2) -> t1.taskImportance.compareTo(t2.taskImportance));
+    }
+    public void sortByDeadline(){
+        for(int i = 0; i<taskList.size()-1; i++){
+            for(int j = 0; j<taskList.size()-1 - i; j++) {
+                if (taskList.get(j+1).deadline.isBefore(taskList.get(j).deadline)) {
+                    Tasks temp = taskList.get(j);
+                    taskList.set(j, taskList.get(j+1));
+                    taskList.set(j+1, temp);
+                }
+            }
+        }
+        for(int i = 0; i<eventsList.size()-1; i++){
+            for(int j = 0; j<eventsList.size()-1 - i; j++) {
+                if (!eventsList.get(j).deadline.isBefore(eventsList.get(j + 1).deadline)) {
+                    Events temp = eventsList.get(j);
+                    eventsList.set(j, eventsList.get(j+1));
+                    eventsList.set(j+1, temp);
+                }
+            }
+        }
+        for(int i = 0; i<activityTasklist.size()-1; i++){
+            for(int j = 0; j<activityTasklist.size()-1 - i; j++) {
+                if (activityTasklist.get(j).deadline.isBefore(activityTasklist.get(j + 1).deadline)) {
+                    Activity temp = activityTasklist.get(j);
+                    activityTasklist.set(j, activityTasklist.get(j+1));
+                    activityTasklist.set(j+1, temp);
+                }
+            }
+        }
     }
 }
 

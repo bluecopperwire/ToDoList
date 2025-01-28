@@ -87,7 +87,6 @@ public class addTaskEntryController extends ToDoList implements Initializable {
                 Events event1 = new Events(name, hierarchy, date);
                 mController.listUpdater(event1, list);
         }
-
     }
 
     @FXML

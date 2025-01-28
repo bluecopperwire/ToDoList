@@ -1,14 +1,12 @@
 package org.todo.todolist;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
 
 public class Main extends Application {
@@ -30,7 +28,7 @@ public class Main extends Application {
         list.eventsList = SaveController.loadEventsFromCSV("events.csv");
 
         mControl.taskInitializer(list.taskList);
-        mControl.eventInitialer(list.eventsList);
+        mControl.eventInitializer(list.eventsList);
         mControl.activityInitializer(list.activityTasklist);
 
         stage.setScene(scene);
