@@ -63,7 +63,7 @@ public class MainController implements Initializable {
 
     public void addTaskPane(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("addTaskEntry.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 355, 360);
+        Scene scene = new Scene(fxmlLoader.load(), 430, 470);
 
         addTaskEntryController tControl = fxmlLoader.getController();
         tControl.setMainController(this);
