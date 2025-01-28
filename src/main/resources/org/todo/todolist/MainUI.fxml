@@ -20,15 +20,15 @@
    <children>
       <BorderPane prefHeight="535.0" prefWidth="760.0">
          <left>
-            <Pane prefHeight="402.0" prefWidth="210.0" style="-fx-background-color: CFFFFF;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="402.0" prefWidth="210.0" style="-fx-background-color: #1b3942;" BorderPane.alignment="CENTER">
                <children>
                   <Pane layoutX="-1.0" layoutY="184.0" prefHeight="353.0" prefWidth="213.0" style="-fx-background-color: #418E8E;">
                      <children>
                         <Pane layoutX="-8.0" layoutY="55.0" prefHeight="214.0" prefWidth="219.0" style="-fx-background-color: #0A625D;">
                            <children>
-                              <Pane layoutX="2.0" layoutY="58.0" prefHeight="244.0" prefWidth="218.0" style="-fx-background-color: #08535B;">
+                              <Pane layoutX="2.0" layoutY="58.0" prefHeight="244.0" prefWidth="218.0" style="-fx-background-color: #0f1f24;">
                                  <children>
-                                    <Button fx:id="options" layoutX="1.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="220.0" style="-fx-background-color: #08535B;" text="Options" textFill="WHITE">
+                                    <Button fx:id="options" layoutX="1.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="220.0" style="-fx-background-color: #d1c9c5;" text="Options" textFill="WHITE">
                                        <font>
                                           <Font name="Yu Gothic UI Semibold" size="14.0" />
                                        </font>
@@ -38,7 +38,7 @@
                                        <graphic>
                                           <HBox alignment="CENTER" prefHeight="57.0" prefWidth="205.0" spacing="6.0">
                                              <children>
-                                                <Label alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="71.0" text="Options" textFill="#fffefe">
+                                                <Label alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="71.0" text="Options" textFill="#082936">
                                                    <font>
                                                       <Font name="Yu Gothic UI Semibold" size="14.0" />
                                                    </font>
@@ -54,7 +54,7 @@
                                     </Button>
                                  </children>
                               </Pane>
-                              <Button fx:id="addEvent" layoutX="6.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="217.0" style="-fx-background-color: #0A625D;" text="Add Event" textFill="WHITE">
+                              <Button fx:id="addEvent" layoutX="6.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="217.0" style="-fx-background-color: #abbd8d;" text="Add Event" textFill="#082936">
                                  <font>
                                     <Font name="Yu Gothic UI Semibold" size="14.0" />
                                  </font>
@@ -64,7 +64,7 @@
                               </Button>
                            </children>
                         </Pane>
-                        <Button fx:id="addTask" layoutX="-4.0" layoutY="-2.0" mnemonicParsing="false" onAction="#addTaskPane" prefHeight="58.0" prefWidth="220.0" style="-fx-background-color: #018E8E;" textFill="WHITE">
+                        <Button fx:id="addTask" layoutX="-4.0" layoutY="-2.0" mnemonicParsing="false" onAction="#addTaskPane" prefHeight="58.0" prefWidth="220.0" style="-fx-background-color: #427a61;" textFill="WHITE">
                            <font>
                               <Font name="Yu Gothic UI Semibold" size="14.0" />
                            </font>
@@ -74,7 +74,7 @@
                            <graphic>
                               <HBox alignment="CENTER" prefHeight="51.0" prefWidth="121.0" spacing="6.0">
                                  <children>
-                                    <Label alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="109.0" text="Add Task Entry" textFill="#fffefe">
+                                    <Label alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="109.0" text="Add Task Entry" textFill="#082936">
                                        <font>
                                           <Font name="Yu Gothic UI Semibold" size="14.0" />
                                        </font>
@@ -93,6 +93,11 @@
                         <InnerShadow />
                      </effect>
                   </Pane>
+                  <ImageView fitHeight="71.0" fitWidth="205.0" layoutX="5.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Icons%20and%20Backsplash/LOGO.png" />
+                     </image>
+                  </ImageView>
                </children>
                <effect>
                   <DropShadow height="11.64" offsetX="10.0" radius="18.1875" spread="0.7" width="63.11" />
@@ -104,7 +109,7 @@
                <children>
                   <TabPane fx:id="mainTabPane" layoutY="134.0" prefHeight="409.0" prefWidth="550.0" style="-fx-background-color: #111111;" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
                      <tabs>
-                        <Tab style="-fx-pref-width: 130; -fx-background-color: #06434A; -fx-text-fill: white;" text="Tasks          ">
+                        <Tab style="-fx-pref-width: 130; -fx-background-color: #2a5241; -fx-text-fill: white;" text="Tasks">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -123,7 +128,7 @@
                            <graphic>
                               <HBox alignment="CENTER" prefHeight="51.0" prefWidth="121.0" spacing="6.0">
                                  <children>
-                                    <Label alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="32.0" text="Tasks" textFill="#fffefe">
+                                    <Label alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="32.0" text="Tasks" textFill="#070505">
                                        <font>
                                           <Font name="Yu Gothic UI Semibold" size="12.0" />
                                        </font>
@@ -132,7 +137,7 @@
                               </HBox>
                            </graphic>
                         </Tab>
-                        <Tab style="-fx-pref-width: 130; -fx-background-color: #08535B;" text="Activities">
+                        <Tab style="-fx-pref-width: 130; -fx-background-color: #909e77;" text="Activities">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -147,7 +152,7 @@
                            <graphic>
                               <HBox alignment="CENTER" prefHeight="41.0" prefWidth="120.0" spacing="6.0">
                                  <children>
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="64.0" text="Activities" textFill="#fffefe">
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="64.0" text="Activities" textFill="#082936">
                                        <font>
                                           <Font name="Yu Gothic UI Semibold" size="12.0" />
                                        </font>
@@ -161,7 +166,7 @@
                               </HBox>
                            </graphic>
                         </Tab>
-                        <Tab style="-fx-pref-width: 130; -fx-background-color: #0A625D;" text="            Events">
+                        <Tab style="-fx-pref-width: 130; -fx-background-color: #abbd8d;" text="            Events">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -173,8 +178,19 @@
                                  </children>
                               </AnchorPane>
                            </content>
+                           <graphic>
+                              <HBox alignment="CENTER" prefHeight="41.0" prefWidth="120.0" spacing="6.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="64.0" text="Events" textFill="#082936">
+                                       <font>
+                                          <Font name="Yu Gothic UI Semibold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </graphic>
                         </Tab>
-                        <Tab style="-fx-pref-width: 135; -fx-background-color: #139A93;" text="          Screen Time">
+                        <Tab style="-fx-pref-width: 135; -fx-background-color: #d1c9c5;" text="          Screen Time">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -189,12 +205,12 @@
                            <graphic>
                               <HBox alignment="CENTER" prefHeight="41.0" prefWidth="120.0" spacing="6.0">
                                  <children>
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="102.0" text="Screen Time" textFill="#fffefe">
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="102.0" text="Screen Time" textFill="#082936">
                                        <font>
                                           <Font name="Yu Gothic UI Semibold" size="12.0" />
                                        </font>
                                     </Label>
-                                    <ImageView fitHeight="25.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../../../../../Icons%20and%20Backsplash/TimeTracker.png" />
                                        </image>

@@ -114,6 +114,9 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tabImageView.setImage(new Image(getClass().getResource("/images/Task-Backsplash.png").toExternalForm()));
+
+        mainTabPane.getSelectionModel().select(0);
+
         mainTabPane.getSelectionModel().selectedItemProperty().addListener((observable, oldTab, newTab) -> {
             if (newTab != null) {
                 switch (newTab.getText().trim()) {
@@ -130,11 +133,23 @@ public class MainController implements Initializable {
                         tabImageView.setImage(new Image(getClass().getResource("/images/Untitled-3Screentime.png").toExternalForm()));
                         break;
                     default:
-                        tabImageView.setImage(null); // Clear image if no match
+                        tabImageView.setImage(null);
                 }
             }
+
+            if (oldTab != null) {
+                oldTab.getStyleClass().remove("tab-highlighted");
+            }
+            if (newTab != null) {
+                newTab.getStyleClass().add("tab-highlighted");
+            }
         });
+
+        for (Tab tab : mainTabPane.getTabs()) {
+            tab.getStyleClass().remove("tab-highlighted");
+        }
     }
+
     public void taskInitializer(ArrayList<Tasks> task) {
         for(Tasks t : task){
             TaskBuilder build = new TaskBuilder(t, list, vboxTK);
