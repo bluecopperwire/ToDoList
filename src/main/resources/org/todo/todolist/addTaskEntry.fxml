@@ -11,17 +11,18 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="364.0" prefWidth="358.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.todo.todolist.addTaskEntryController">
+<AnchorPane prefHeight="455.0" prefWidth="391.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.todo.todolist.addTaskEntryController">
    <children>
-      <BorderPane prefHeight="364.0" prefWidth="358.0">
+      <BorderPane prefHeight="474.0" prefWidth="430.0">
          <center>
-            <Pane prefHeight="352.0" prefWidth="358.0" styleClass="backgroundColor3" stylesheets="@style.css" BorderPane.alignment="CENTER">
+            <Pane prefHeight="438.0" prefWidth="410.0" styleClass="backgroundColor5" stylesheets="@style.css" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER" layoutX="25.0" layoutY="61.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="56.0" prefWidth="309.0" style="-fx-border-radius: 7; -fx-background-radius: 10; -fx-background-color: ffffff; -fx-border-color: #11ADAD; -fx-border-width: 3;">
+                  <HBox alignment="CENTER" layoutX="54.0" layoutY="87.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="56.0" prefWidth="335.0" style="-fx-border-radius: 7; -fx-background-radius: 10; -fx-background-color: #eaefd9; -fx-border-color: #6f7a5c; -fx-border-width: 3;">
                      <children>
-                        <TextField fx:id="taskName" prefHeight="26.0" prefWidth="286.0" promptText="Add a task name">
+                        <TextField fx:id="taskName" prefHeight="26.0" prefWidth="306.0" promptText="Add a task name">
                            <HBox.margin>
                               <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                            </HBox.margin>
@@ -30,59 +31,51 @@
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
-                     <effect>
-                        <DropShadow />
-                     </effect>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="25.0" layoutY="124.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="309.0" style="-fx-border-radius: 7; -fx-background-radius: 10; -fx-background-color: ffffff; -fx-border-width: 3; -fx-border-color: #11ADAD;">
+                  <HBox alignment="CENTER" layoutX="54.0" layoutY="167.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="335.0" style="-fx-border-radius: 7; -fx-background-radius: 10; -fx-background-color: #eaefd9; -fx-border-width: 3; -fx-border-color: #6f7a5c;">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                      <children>
-                        <ComboBox fx:id="taskHierarchy" prefHeight="26.0" prefWidth="286.0" promptText="Choose task level" style="-fx-background-color: F0F0F0;" />
+                        <ComboBox fx:id="taskHierarchy" prefHeight="26.0" prefWidth="299.0" promptText="Choose task priority" style="-fx-background-color: F0F0F0;" />
                      </children>
-                     <effect>
-                        <DropShadow />
-                     </effect>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="26.0" layoutY="238.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="307.0" style="-fx-border-radius: 7; -fx-background-radius: 10; -fx-background-color: ffffff; -fx-border-color: #11ADAD; -fx-border-width: 3;">
+                  <HBox alignment="CENTER" layoutX="55.0" layoutY="313.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="53.0" prefWidth="333.0" style="-fx-border-radius: 7; -fx-background-radius: 10; -fx-background-color: #eaefd9; -fx-border-color: #6f7a5c; -fx-border-width: 3;">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                      <children>
-                        <DatePicker fx:id="deadLine" prefHeight="26.0" prefWidth="286.0" promptText="Choose a deadline" />
+                        <DatePicker fx:id="deadLine" prefHeight="26.0" prefWidth="295.0" promptText="Choose a deadline" />
                      </children>
-                     <effect>
-                        <DropShadow />
-                     </effect>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="26.0" layoutY="182.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="307.0" style="-fx-border-radius: 7; -fx-background-radius: 10; -fx-background-color: ffffff; -fx-border-width: 3; -fx-border-color: #11ADAD;">
+                  <HBox alignment="CENTER" layoutX="55.0" layoutY="237.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="333.0" style="-fx-border-radius: 7; -fx-background-radius: 10; -fx-background-color: #eaefd9; -fx-border-width: 3; -fx-border-color: #6f7a5c;">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                      <children>
-                        <ComboBox fx:id="taskType" prefHeight="26.0" prefWidth="286.0" promptText="Choose Task type" style="-fx-background-color: F0F0F0;" />
+                        <ComboBox fx:id="taskType" prefHeight="26.0" prefWidth="298.0" promptText="Choose Task type" style="-fx-background-color: F0F0F0;" />
                      </children>
-                     <effect>
-                        <DropShadow />
-                     </effect>
                   </HBox>
-                  <Button fx:id="addEntry" layoutX="40.0" layoutY="308.0" mnemonicParsing="false" onAction="#AddEntrytolist" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #11ADAD;" text="Add Entry" textFill="WHITE">
+                  <Button fx:id="addEntry" layoutX="72.0" layoutY="400.0" mnemonicParsing="false" onAction="#AddEntrytolist" prefHeight="51.0" prefWidth="122.0" styleClass="button-hover-effect2" stylesheets="@style.css" text="Add Entry" textFill="WHITE">
                      <font>
                         <Font name="Yu Gothic UI Semibold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="cancelbtn" layoutX="199.0" layoutY="308.0" mnemonicParsing="false" onAction="#dispose" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #11ADAD;" text="Cancel" textFill="WHITE">
+                  <Button fx:id="cancelbtn" layoutX="252.0" layoutY="400.0" mnemonicParsing="false" onAction="#dispose" prefHeight="51.0" prefWidth="122.0" styleClass="button-hover-effect2" stylesheets="@style.css" text="Cancel" textFill="WHITE">
                      <font>
                         <Font name="Yu Gothic UI Semibold" size="14.0" />
                      </font>
                   </Button>
-                  <Label layoutX="100.0" layoutY="14.0" text="Entry Details" textFill="#31f4f4">
+                  <Label layoutX="107.0" layoutY="14.0" prefHeight="73.0" prefWidth="229.0" text="Entry Details" textFill="#427a61">
                      <font>
-                        <Font name="Yu Gothic UI Semibold" size="28.0" />
+                        <Font name="Yu Gothic UI Semibold" size="40.0" />
                      </font>
                      <effect>
-                        <DropShadow />
+                        <DropShadow height="11.64" radius="5.32" width="11.64">
+                           <color>
+                              <Color red="0.410526305437088" green="0.410526305437088" blue="0.410526305437088" opacity="0.4699999988079071" />
+                           </color>
+                        </DropShadow>
                      </effect>
                   </Label>
                </children>

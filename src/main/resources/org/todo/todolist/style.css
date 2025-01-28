@@ -10,6 +10,9 @@
 .backgroundColor4{
     -fx-background-color: linear-gradient(to bottom, #f7f1f3, #f7f1f3);
 }
+.backgroundColor5{
+    -fx-background-color: linear-gradient(to bottom,  #eaefd9,  #b2c590);
+}
 
 .tab{
     -fx-pref-height: 40;
@@ -66,5 +69,14 @@
 .task-hbox .button:hover {
     -fx-background-color: #2980b9; /* Darker blue on hover */
 }
+.button-hover-effect2 {
+    -fx-background-color: #427a61; /* Default background color */
+    -fx-text-fill: white; /* Default text color */
+    -fx-transition: all 0.3s ease; /* Smooth transition */
+}
 
+.button-hover-effect2:hover {
+    -fx-background-color: #eaefd9; /* Background color on hover */
+    -fx-text-fill: brown; /* Change text color on hover */
+}
 

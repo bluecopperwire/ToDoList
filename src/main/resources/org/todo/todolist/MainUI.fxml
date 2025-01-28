@@ -54,7 +54,11 @@
                                     </Button>
                                  </children>
                               </Pane>
+
                               <Button fx:id="addEvent" layoutX="6.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="217.0" style="-fx-background-color: #abbd8d;" text="Add Event" textFill="#082936">
+
+                              <Button fx:id="sort" layoutX="6.0" layoutY="-1.0" mnemonicParsing="false" onAction="#sort" prefHeight="60.0" prefWidth="217.0" style="-fx-background-color: #0A625D;" text="Add Event" textFill="WHITE">
+
                                  <font>
                                     <Font name="Yu Gothic UI Semibold" size="14.0" />
                                  </font>

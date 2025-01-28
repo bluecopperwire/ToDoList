@@ -1,25 +1,23 @@
 package org.todo.todolist;
 
-import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 //import static org.todo.todolist.Main.list;
@@ -29,7 +27,7 @@ public class MainController implements Initializable {
     private ScrollPane activitiesPane;
 
     @FXML
-    private Button addEvent;
+    private Button sort;
 
     @FXML
     private Button addTask;
@@ -65,14 +63,18 @@ public class MainController implements Initializable {
     private ImageView tabImageView;
 
     ToDoList list;
-
+    @FXML
+    void sort(ActionEvent event){
+        sortImportance();
+        System.out.println("task sorted");
+    }
     public void setList(ToDoList list){
         this.list = list;
     }
 
     public void addTaskPane(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("addTaskEntry.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 355, 360);
+        Scene scene = new Scene(fxmlLoader.load(), 430, 470);
 
         addTaskEntryController tControl = fxmlLoader.getController();
         tControl.setMainController(this);
@@ -164,11 +166,63 @@ public class MainController implements Initializable {
         }
         SaveController.saveActivityToCSV(list.activityTasklist, "activities.csv");
     }
-    public void eventInitialer(ArrayList<Events> event) {
+    public void eventInitializer(ArrayList<Events> event) {
         for(Events e : event){
             TaskBuilder build = new TaskBuilder(e, list, vboxEV);
             build.addBox(vboxEV);
         }
         SaveController.saveEventsToCSV(list.eventsList, "events.csv");
     }
+
 }
+
+    public void sortImportance(){
+        System.out.println("Sorting");
+        list.sortByImportance();
+
+        vboxTK.getChildren().clear();
+        vboxAT.getChildren().clear();
+        vboxEV.getChildren().clear();
+
+        for(Tasks t : list.taskList){
+            TaskBuilder build = new TaskBuilder(t, list, vboxTK);
+            build.addBox(vboxTK);
+        }
+        for(Activity a : list.activityTasklist){
+            TaskBuilder build = new TaskBuilder(a, list, vboxAT);
+            build.addBox(vboxAT);
+        }
+        for(Events e : list.eventsList){
+            TaskBuilder build = new TaskBuilder(e, list, vboxEV);
+            build.addBox(vboxEV);
+        }
+        SaveController.saveEventsToCSV(list.eventsList, "events.csv");
+        SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
+        SaveController.saveActivityToCSV(list.activityTasklist, "events.csv");
+    }
+
+    void sortByDeadline(){
+        list.sortByDeadline();
+
+        vboxTK.getChildren().clear();
+        vboxAT.getChildren().clear();
+        vboxEV.getChildren().clear();
+
+        for(Tasks t : list.taskList){
+            TaskBuilder build = new TaskBuilder(t, list, vboxTK);
+            build.addBox(vboxTK);
+        }
+        for(Activity a : list.activityTasklist){
+            TaskBuilder build = new TaskBuilder(a, list, vboxAT);
+            build.addBox(vboxAT);
+        }
+        for(Events e : list.eventsList){
+            TaskBuilder build = new TaskBuilder(e, list, vboxEV);
+            build.addBox(vboxEV);
+        }
+        SaveController.saveEventsToCSV(list.eventsList, "events.csv");
+        SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
+        SaveController.saveActivityToCSV(list.activityTasklist, "events.csv");
+    }
+}
+
