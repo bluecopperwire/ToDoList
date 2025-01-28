@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -55,6 +57,12 @@ public class MainController implements Initializable {
 
     @FXML
     private VBox vboxTK;
+
+    @FXML
+    private TabPane mainTabPane;
+
+    @FXML
+    private ImageView tabImageView;
 
     ToDoList list;
 
@@ -103,10 +111,29 @@ public class MainController implements Initializable {
         }
     }
 
-        @Override
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-            //vboxAT.getChildren().add(new Label("someting"));
-        // Consider moving list update logic to a separate method called after FXML injection
+        tabImageView.setImage(new Image(getClass().getResource("/images/Task-Backsplash.png").toExternalForm()));
+        mainTabPane.getSelectionModel().selectedItemProperty().addListener((observable, oldTab, newTab) -> {
+            if (newTab != null) {
+                switch (newTab.getText().trim()) {
+                    case "Tasks":
+                        tabImageView.setImage(new Image(getClass().getResource("/images/Task-Backsplash.png").toExternalForm()));
+                        break;
+                    case "Activities":
+                        tabImageView.setImage(new Image(getClass().getResource("/images/Activities.png").toExternalForm()));
+                        break;
+                    case "Events":
+                        tabImageView.setImage(new Image(getClass().getResource("/images/Untitled-3Events.png").toExternalForm()));
+                        break;
+                    case "Screen Time":
+                        tabImageView.setImage(new Image(getClass().getResource("/images/Untitled-3Screentime.png").toExternalForm()));
+                        break;
+                    default:
+                        tabImageView.setImage(null); // Clear image if no match
+                }
+            }
+        });
     }
     public void taskInitializer(ArrayList<Tasks> task) {
         for(Tasks t : task){
