@@ -80,4 +80,18 @@
     -fx-background-color: #eaefd9; /* Background color on hover */
     -fx-text-fill: brown; /* Change text color on hover */
 }
+.button-hover-effect3 {
+    -fx-background-color: #427a61; /* Background color on hover */ /* Change text color on hover */
+}
+.button-hover-effect3:hover {
+    -fx-background-color: #eaefd9; /* Background color on hover */
+    -fx-text-fill: brown; /* Change text color on hover */
+}
+.button-hover-effect4 {
+    -fx-background-color: #d1c9c5; /* Background color on hover */ /* Change text color on hover */
+}
+.button-hover-effect4:hover {
+    -fx-background-color: #eaefd9; /* Background color on hover */
+    -fx-text-fill: brown; /* Change text color on hover */
+}
 
