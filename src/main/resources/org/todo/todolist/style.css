@@ -69,6 +69,7 @@
 .task-hbox .button:hover {
     -fx-background-color: #2980b9; /* Darker blue on hover */
 }
+
 .button-hover-effect2 {
     -fx-background-color: #427a61; /* Default background color */
     -fx-text-fill: white; /* Default text color */

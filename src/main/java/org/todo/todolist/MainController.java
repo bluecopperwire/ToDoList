@@ -174,7 +174,7 @@ public class MainController implements Initializable {
         SaveController.saveEventsToCSV(list.eventsList, "events.csv");
     }
 
-}
+
 
     public void sortImportance(){
         System.out.println("Sorting");
