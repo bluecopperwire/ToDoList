@@ -263,7 +263,7 @@ public class MainController implements Initializable {
         }
         SaveController.saveEventsToCSV(list.eventsList, "events.csv");
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
-        SaveController.saveActivityToCSV(list.activityTasklist, "activity.csv");
+        SaveController.saveActivityToCSV(list.activityTasklist, "activities.csv");
     }
 }
 
