@@ -35,7 +35,13 @@ javafx {
 }
 
 dependencies {
-    implementation 'com.dlsc.formsfx:formsfx-core:11.6.0'
+
+    implementation 'net.java.dev.jna:jna:5.12.1'
+    implementation 'net.java.dev.jna:jna-platform:5.12.1'
+    
+    implementation('com.dlsc.formsfx:formsfx-core:11.6.0') {
+        exclude(group: 'org.openjfx')
+    }
     implementation 'org.openjfx:javafx-controls:22.0.1'
     implementation 'org.openjfx:javafx-fxml:22.0.1'
 

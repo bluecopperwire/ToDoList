@@ -1,6 +1,8 @@
 module org.todo.todolist {
     requires javafx.controls;
     requires javafx.fxml;
+    requires com.sun.jna;
+    requires com.sun.jna.platform;
 
     requires com.dlsc.formsfx;
     requires java.desktop;
