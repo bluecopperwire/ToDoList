@@ -24,6 +24,12 @@
     -fx-border-color: #222222;
     -fx-background-color: #418E8E;
 }
+.tab-pane:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
 .tab-header-background{
     -fx-background-color: #f7f1f3;
 }

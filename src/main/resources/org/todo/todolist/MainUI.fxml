@@ -45,7 +45,7 @@
                                                 </Label>
                                                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../../../images/Untitled-3Settings.png" />
+                                                      <Image url="@../../../images/Settings.png" />
                                                    </image>
                                                 </ImageView>
                                              </children>
@@ -109,9 +109,9 @@
          <center>
             <Pane prefHeight="535.0" prefWidth="531.0" style="-fx-background-color: #418E8E;" stylesheets="@style.css" BorderPane.alignment="CENTER">
                <children>
-                  <TabPane fx:id="mainTabPane" layoutY="134.0" prefHeight="409.0" prefWidth="550.0" style="-fx-background-color: #111111;" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
+                  <TabPane fx:id="mainTabPane" layoutY="134.0" prefHeight="409.0" prefWidth="550.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
                      <tabs>
-                        <Tab style="-fx-pref-width: 130; -fx-background-color: #2a5241; -fx-text-fill: white;" text="Tasks">
+                        <Tab fx:id="tasksTab" style="-fx-pref-width: 130; -fx-background-color: #2a5241; -fx-text-fill: white;" text="Tasks">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -135,6 +135,11 @@
                                           <Font name="Yu Gothic UI Semibold" size="12.0" />
                                        </font>
                                     </Label>
+                                    <ImageView fitHeight="29.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/Task.png" />
+                                       </image>
+                                    </ImageView>
                                  </children>
                               </HBox>
                            </graphic>
@@ -183,11 +188,16 @@
                            <graphic>
                               <HBox alignment="CENTER" prefHeight="41.0" prefWidth="120.0" spacing="6.0">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="18.0" prefWidth="70.0" text="Events" textFill="#082936">
+                                    <Label alignment="CENTER" prefHeight="18.0" prefWidth="54.0" text="Events" textFill="#082936">
                                        <font>
                                           <Font name="Yu Gothic UI Semibold" size="12.0" />
                                        </font>
                                     </Label>
+                                    <ImageView fitHeight="23.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/Event.png" />
+                                       </image>
+                                    </ImageView>
                                  </children>
                               </HBox>
                            </graphic>

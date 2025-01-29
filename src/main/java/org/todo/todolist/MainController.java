@@ -49,6 +49,8 @@ public class MainController implements Initializable {
 
     @FXML
     private VBox vboxEV;
+    @FXML
+    private Tab tasksTab;
 
     @FXML
     private VBox vboxST;
@@ -212,8 +214,6 @@ public class MainController implements Initializable {
             sortByDeadline();
         SaveController.saveEventsToCSV(list.eventsList, "events.csv");
     }
-
-
 
     public void sortImportance(){
         System.out.println("Sorting");
