@@ -35,7 +35,6 @@ public class Main extends Application {
         mControl.eventInitializer(list.eventsList);
         mControl.activityInitializer(list.activityTasklist);
 
-
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

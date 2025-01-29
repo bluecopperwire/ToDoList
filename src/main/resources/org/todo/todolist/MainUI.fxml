@@ -52,6 +52,11 @@
                                           </HBox>
                                        </graphic>
                                     </Button>
+                                    <ImageView fx:id="gif" fitHeight="142.0" fitWidth="136.0" layoutX="43.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../Icons%20and%20Backsplash/Idle%20Animation2.gif" />
+                                       </image>
+                                    </ImageView>
                                  </children>
                               </Pane>
                         

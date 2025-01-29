@@ -1,16 +1,19 @@
 package org.todo.todolist;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 import java.awt.image.PackedColorModel;
 import java.util.ArrayList;
@@ -29,7 +32,7 @@ public class TaskBuilder {
     Label deadline = new Label();
     //Image icon = new Image("src");
 
-    public TaskBuilder(Tasks task, ToDoList list, VBox container) {
+    public TaskBuilder(Tasks task, ToDoList list, VBox container, ImageView gif) {
         /*
         * Implement Switch case for icons
         * */
@@ -68,10 +71,10 @@ public class TaskBuilder {
 
         box.getChildren().addAll(innerBox, rightPanel);
 
-        finish.setOnAction(event -> deleteTask(task, list, container));
+        finish.setOnAction(event -> finishTask(task, list, container, gif));
         delete.setOnAction(event -> deleteTask(task, list, container));
     }
-    public TaskBuilder(Activity activity, ToDoList list, VBox container) {
+    public TaskBuilder(Activity activity, ToDoList list, VBox container, ImageView gif) {
         /*
          * Implement Switch case for icons
          * */
@@ -109,10 +112,10 @@ public class TaskBuilder {
 
         box.getChildren().addAll(innerBox, rightPanel);
 
-        finish.setOnAction(event -> deleteActivity(activity, list, container));
+        finish.setOnAction(event -> finishActivity(activity, list, container, gif));
         delete.setOnAction(event -> deleteActivity(activity, list, container));
     }
-    public TaskBuilder(Events events, ToDoList list, VBox container) {
+    public TaskBuilder(Events events, ToDoList list, VBox container, ImageView gif) {
         /*
          * Implement Switch case for icons
          * */
@@ -151,7 +154,7 @@ public class TaskBuilder {
 
         box.getChildren().addAll(innerBox, rightPanel);
 
-        finish.setOnAction(event -> deleteEvent(events, list, container));
+        finish.setOnAction(event -> finishEvent(events, list, container, gif));
         delete.setOnAction(event -> deleteEvent(events, list, container));
     }
     public void addBox(VBox vbox){
@@ -192,6 +195,42 @@ public class TaskBuilder {
         box.getChildren().clear();
         list.eventsList.remove(entry);
         vbox.getChildren().remove(box);
+        SaveController.saveEventsToCSV(list.eventsList, "events.csv");
+    }
+    public void finishTask(Tasks entry, ToDoList list, VBox vbox, ImageView gif){
+        box.getChildren().clear();
+        list.taskList.remove(entry);
+        vbox.getChildren().remove(box);
+
+        gif.setImage(new Image(getClass().getResource("/images/CelebrationAnimation.gif").toExternalForm()));
+        PauseTransition pause = new PauseTransition(Duration.seconds(4));
+        pause.setOnFinished(e -> gif.setImage(new Image(getClass().getResource("/images/IdleAnimation2.gif").toExternalForm())));
+        pause.play();
+
+        SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
+    }
+    public void finishActivity(Activity entry, ToDoList list, VBox vbox, ImageView gif){
+        box.getChildren().clear();
+        list.activityTasklist.remove(entry);
+        vbox.getChildren().remove(box);
+
+        gif.setImage(new Image(getClass().getResource("/images/CelebrationAnimation.gif").toExternalForm()));
+        PauseTransition pause = new PauseTransition(Duration.seconds(4));
+        pause.setOnFinished(e -> gif.setImage(new Image(getClass().getResource("/images/IdleAnimation2.gif").toExternalForm())));
+        pause.play();
+
+        SaveController.saveActivityToCSV(list.activityTasklist, "activities.csv");
+    }
+    public void finishEvent(Events entry, ToDoList list, VBox vbox, ImageView gif){
+        box.getChildren().clear();
+        list.eventsList.remove(entry);
+        vbox.getChildren().remove(box);
+
+        gif.setImage(new Image(getClass().getResource("/images/CelebrationAnimation.gif").toExternalForm()));
+        PauseTransition pause = new PauseTransition(Duration.seconds(4));
+        pause.setOnFinished(e -> gif.setImage(new Image(getClass().getResource("/images/IdleAnimation2.gif").toExternalForm())));
+        pause.play();
+
         SaveController.saveEventsToCSV(list.eventsList, "events.csv");
     }
 }

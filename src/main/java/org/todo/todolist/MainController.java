@@ -65,6 +65,9 @@ public class MainController implements Initializable {
     @FXML
     private ImageView tabImageView;
 
+    @FXML
+    private ImageView gif;
+
     ToDoList list;
 
     private boolean sortImportanceToggle = false;
@@ -173,7 +176,7 @@ public class MainController implements Initializable {
 
     public void taskInitializer(ArrayList<Tasks> task) {
         for(Tasks t : task){
-            TaskBuilder build = new TaskBuilder(t, list, vboxTK);
+            TaskBuilder build = new TaskBuilder(t, list, vboxTK, gif);
             build.addBox(vboxTK);
         }
         if(sortImportanceToggle)
@@ -184,7 +187,7 @@ public class MainController implements Initializable {
     }
     public void activityInitializer(ArrayList<Activity> activity) {
         for(Activity a : activity){
-            TaskBuilder build = new TaskBuilder(a, list, vboxAT);
+            TaskBuilder build = new TaskBuilder(a, list, vboxAT, gif);
             build.addBox(vboxAT);
         }
         if(sortImportanceToggle)
@@ -195,7 +198,7 @@ public class MainController implements Initializable {
     }
     public void eventInitializer(ArrayList<Events> event) {
         for(Events e : event){
-            TaskBuilder build = new TaskBuilder(e, list, vboxEV);
+            TaskBuilder build = new TaskBuilder(e, list, vboxEV, gif);
             build.addBox(vboxEV);
         }
         if(sortImportanceToggle)
@@ -214,15 +217,15 @@ public class MainController implements Initializable {
         vboxEV.getChildren().clear();
 
         for(Tasks t : list.taskList){
-            TaskBuilder build = new TaskBuilder(t, list, vboxTK);
+            TaskBuilder build = new TaskBuilder(t, list, vboxTK, gif);
             build.addBox(vboxTK);
         }
         for(Activity a : list.activityTasklist){
-            TaskBuilder build = new TaskBuilder(a, list, vboxAT);
+            TaskBuilder build = new TaskBuilder(a, list, vboxAT, gif);
             build.addBox(vboxAT);
         }
         for(Events e : list.eventsList){
-            TaskBuilder build = new TaskBuilder(e, list, vboxEV);
+            TaskBuilder build = new TaskBuilder(e, list, vboxEV, gif);
             build.addBox(vboxEV);
         }
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
@@ -238,15 +241,15 @@ public class MainController implements Initializable {
         vboxEV.getChildren().clear();
 
         for(Tasks t : list.taskList){
-            TaskBuilder build = new TaskBuilder(t, list, vboxTK);
+            TaskBuilder build = new TaskBuilder(t, list, vboxTK, gif);
             build.addBox(vboxTK);
         }
         for(Activity a : list.activityTasklist){
-            TaskBuilder build = new TaskBuilder(a, list, vboxAT);
+            TaskBuilder build = new TaskBuilder(a, list, vboxAT, gif);
             build.addBox(vboxAT);
         }
         for(Events e : list.eventsList){
-            TaskBuilder build = new TaskBuilder(e, list, vboxEV);
+            TaskBuilder build = new TaskBuilder(e, list, vboxEV, gif);
             build.addBox(vboxEV);
         }
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
