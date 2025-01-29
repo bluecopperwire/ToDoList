@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 
 
@@ -24,16 +25,21 @@ public class Main extends Application {
         mControl.setList(list);
 
         list.taskList = SaveController.loadTasksFromCSV("tasks.csv");
+
         list.activityTasklist = SaveController.loadActivitiesFromCSV("activities.csv");
+
         list.eventsList = SaveController.loadEventsFromCSV("events.csv");
+
 
         mControl.taskInitializer(list.taskList);
         mControl.eventInitializer(list.eventsList);
         mControl.activityInitializer(list.activityTasklist);
 
+
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+        list.deadLineChecker();
     }
 
     public static void main(String[] args) {

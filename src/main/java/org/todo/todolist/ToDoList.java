@@ -59,7 +59,6 @@ public class ToDoList {
                 doneList.add(t);
             }
         }
-        taskList.removeAll(doneList);
 
         for (Activity t : activityTasklist) {
             if (!current.isBefore(t.deadline)) {
@@ -69,7 +68,6 @@ public class ToDoList {
                 doneList.add(t);
             }
         }
-        taskList.removeAll(doneList);
 
         for (Events t : eventsList) {
             if (!current.isBefore(t.deadline)) {
@@ -79,7 +77,6 @@ public class ToDoList {
                 doneList.add(t);
             }
         }
-        taskList.removeAll(doneList);
     }
     public void sortByImportance(){
         Collections.sort(taskList, (t1, t2) -> t1.taskImportance.compareTo(t2.taskImportance));
@@ -98,7 +95,7 @@ public class ToDoList {
         }
         for(int i = 0; i<eventsList.size()-1; i++){
             for(int j = 0; j<eventsList.size()-1 - i; j++) {
-                if (!eventsList.get(j).deadline.isBefore(eventsList.get(j + 1).deadline)) {
+                if (eventsList.get(j).deadline.isBefore(eventsList.get(j + 1).deadline)) {
                     Events temp = eventsList.get(j);
                     eventsList.set(j, eventsList.get(j+1));
                     eventsList.set(j+1, temp);

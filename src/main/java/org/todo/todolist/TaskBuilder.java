@@ -119,7 +119,7 @@ public class TaskBuilder {
         name.setText(events.taskName);
         name.setStyle("-fx-font-size: 14px");
         deadline.setStyle("-fx-text-fill: #ffffff");
-        deadline.setText("Due on: " + events.deadline.toString());
+        deadline.setText("Marked on: " + events.deadline.toString());
         deadlinebox.getChildren().add(deadline);
         deadlinebox.setAlignment(Pos.CENTER);
         deadlinebox.setStyle("-fx-background-radius: 20; -fx-border-radius: 20; -fx-min-height:15; -fx-max-height:15;-fx-pref-height:15");

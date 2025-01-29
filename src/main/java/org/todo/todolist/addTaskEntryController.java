@@ -49,13 +49,13 @@ public class addTaskEntryController extends ToDoList implements Initializable {
     @FXML
     void AddEntrytolist(ActionEvent event) throws Exception {
         type = taskType.getValue();
+        priority = taskHierarchy.getValue();
         name = taskName.getText();
+
         date = deadLine.getValue();
 
         if(date == null)
             date = LocalDate.now();
-
-        priority = taskHierarchy.getValue();
 
         switch(priority){
             case "Low":
@@ -74,6 +74,7 @@ public class addTaskEntryController extends ToDoList implements Initializable {
 
         switch(type) {
             case "Default Task":
+                JOptionPane.showMessageDialog(null, list.taskList.size());
                 Tasks task = new Tasks(name, hierarchy, date);
                 mController.listUpdater(task, list);
                 break;
@@ -85,6 +86,7 @@ public class addTaskEntryController extends ToDoList implements Initializable {
                 Events event1 = new Events(name, hierarchy, date);
                 mController.listUpdater(event1, list);
         }
+
         Stage stage = (Stage) addEntry.getScene().getWindow();
         stage.close();
     }

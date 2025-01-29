@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -105,25 +106,16 @@ public class MainController implements Initializable {
     }
     public void listUpdater(Tasks task, ToDoList list) {
         list.addTask(task);
-        vboxTK.getChildren().clear();
-        System.out.println("Task added");
-        for(Tasks t : list.taskList){
-            TaskBuilder build = new TaskBuilder(t, list, vboxTK);
-            build.addBox(vboxTK);
-        }
         if(sortImportanceToggle)
             sortImportance();
         else
             sortByDeadline();
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
+        JOptionPane.showMessageDialog(null, list.taskList.size());
     }
     public void listUpdater(Activity activity,ToDoList list) {
         list.addActivity(activity);
-        vboxAT.getChildren().clear();
-        for(Activity a : list.activityTasklist){
-            TaskBuilder build = new TaskBuilder(a, list, vboxAT);
-            build.addBox(vboxAT);
-        }
+
         if(sortImportanceToggle)
             sortImportance();
         else
@@ -132,11 +124,7 @@ public class MainController implements Initializable {
     }
     public void listUpdater(Events event,ToDoList list) {
         list.addEvent(event);
-        vboxEV.getChildren().clear();
-        for(Events e : list.eventsList){
-            TaskBuilder build = new TaskBuilder(event, list, vboxEV);
-            build.addBox(vboxEV);
-        }
+
         if(sortImportanceToggle)
             sortImportance();
         else
@@ -237,8 +225,8 @@ public class MainController implements Initializable {
             TaskBuilder build = new TaskBuilder(e, list, vboxEV);
             build.addBox(vboxEV);
         }
-        SaveController.saveEventsToCSV(list.eventsList, "events.csv");
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
+        SaveController.saveEventsToCSV(list.eventsList, "events.csv");
         SaveController.saveActivityToCSV(list.activityTasklist, "activity.csv");
     }
 
@@ -261,8 +249,8 @@ public class MainController implements Initializable {
             TaskBuilder build = new TaskBuilder(e, list, vboxEV);
             build.addBox(vboxEV);
         }
-        SaveController.saveEventsToCSV(list.eventsList, "events.csv");
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
+        SaveController.saveEventsToCSV(list.eventsList, "events.csv");
         SaveController.saveActivityToCSV(list.activityTasklist, "activities.csv");
     }
 }
