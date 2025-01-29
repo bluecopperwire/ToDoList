@@ -1,5 +1,8 @@
 package org.todo.todolist;
 
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
+
 import javax.swing.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -51,28 +54,47 @@ public class ToDoList {
 
     public void deadLineChecker() {
         LocalDate current = LocalDate.now();
+
+        // Check for Tasks
         for (Tasks t : taskList) {
             if (!current.isBefore(t.deadline)) {
-                SwingUtilities.invokeLater(() -> {
-                    JOptionPane.showMessageDialog(null, "Deadline reached for: " + t.taskName, "Deadline Notification", JOptionPane.WARNING_MESSAGE);
+                // Use Platform.runLater to update the UI
+                Platform.runLater(() -> {
+                    // Show the deadline notification in JavaFX
+                    // You can use an alert, label, or some other JavaFX component for a notification
+                    // For example, a simple dialog or a notification:
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Deadline Notification");
+                    alert.setHeaderText("Deadline reached for: " + t.taskName);
+                    alert.showAndWait();
                 });
                 doneList.add(t);
             }
         }
 
+        // Check for Activities
         for (Activity t : activityTasklist) {
             if (!current.isBefore(t.deadline)) {
-                SwingUtilities.invokeLater(() -> {
-                    JOptionPane.showMessageDialog(null, "Deadline reached for: " + t.taskName, "Deadline Notification", JOptionPane.WARNING_MESSAGE);
+                Platform.runLater(() -> {
+                    // Use JavaFX Alert for activity deadline
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Deadline Notification");
+                    alert.setHeaderText("Deadline reached for: " + t.taskName);
+                    alert.showAndWait();
                 });
                 doneList.add(t);
             }
         }
 
+        // Check for Events
         for (Events t : eventsList) {
             if (!current.isBefore(t.deadline)) {
-                SwingUtilities.invokeLater(() -> {
-                    JOptionPane.showMessageDialog(null, "Deadline reached for: " + t.taskName, "Deadline Notification", JOptionPane.WARNING_MESSAGE);
+                Platform.runLater(() -> {
+                    // Use JavaFX Alert for event deadline
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Deadline Notification");
+                    alert.setHeaderText("Deadline reached for: " + t.taskName);
+                    alert.showAndWait();
                 });
                 doneList.add(t);
             }

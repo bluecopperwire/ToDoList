@@ -114,7 +114,6 @@ public class MainController implements Initializable {
         else
             sortByDeadline();
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
-        JOptionPane.showMessageDialog(null, list.taskList.size());
     }
     public void listUpdater(Activity activity,ToDoList list) {
         list.addActivity(activity);

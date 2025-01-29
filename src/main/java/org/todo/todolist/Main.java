@@ -38,10 +38,25 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-        list.deadLineChecker();
+        checkDeadlines(list);
     }
 
     public static void main(String[] args) {
         launch();
+    }
+    void checkDeadlines(ToDoList list){
+        Thread deadlineThread = new Thread(() -> {
+            while (true) {
+                try {
+                    // Sleep for some time before checking again (e.g., every minute)
+                    Thread.sleep(60000); // 60 seconds
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                list.deadLineChecker();
+            }
+        });
+        deadlineThread.setDaemon(true);  // This ensures the thread terminates when the app exits
+        deadlineThread.start();
     }
 }

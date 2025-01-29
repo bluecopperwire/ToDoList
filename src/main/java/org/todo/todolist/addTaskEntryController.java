@@ -74,7 +74,6 @@ public class addTaskEntryController extends ToDoList implements Initializable {
 
         switch(type) {
             case "Default Task":
-                JOptionPane.showMessageDialog(null, list.taskList.size());
                 Tasks task = new Tasks(name, hierarchy, date);
                 mController.listUpdater(task, list);
                 break;
