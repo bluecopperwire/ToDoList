@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class MainController implements Initializable {
     private ScrollPane activitiesPane;
 
     @FXML
-    private Button sort;
+    private Button sortBy;
 
     @FXML
     private Button addTask;
@@ -49,6 +50,8 @@ public class MainController implements Initializable {
 
     @FXML
     private VBox vboxEV;
+    @FXML
+    private Tab tasksTab;
 
     @FXML
     private VBox vboxST;
@@ -62,7 +65,13 @@ public class MainController implements Initializable {
     @FXML
     private ImageView tabImageView;
 
+    @FXML
+    private ImageView gif;
+
     ToDoList list;
+
+    private boolean sortImportanceToggle = false;
+
     @FXML
     void sort(ActionEvent event){
         sortImportance();
@@ -70,6 +79,18 @@ public class MainController implements Initializable {
     }
     public void setList(ToDoList list){
         this.list = list;
+    }
+
+    @FXML
+    public void toggle(ActionEvent event){
+        if(sortImportanceToggle) {
+            sortByDeadline(); // Sort by deadline when toggling off
+            sortBy.setText("Sort By Priority");
+        } else {
+            sortImportance(); // Sort by importance when toggling on
+            sortBy.setText("Sort By Deadline");
+        }
+        sortImportanceToggle = !sortImportanceToggle; // Toggle the flag
     }
 
     public void addTaskPane(ActionEvent event) throws IOException {
@@ -88,29 +109,29 @@ public class MainController implements Initializable {
     }
     public void listUpdater(Tasks task, ToDoList list) {
         list.addTask(task);
-        vboxTK.getChildren().clear();
-        System.out.println("Task added");
-        for(Tasks t : list.taskList){
-            TaskBuilder build = new TaskBuilder(t, list, vboxTK);
-            build.addBox(vboxTK);
-        }
+        if(sortImportanceToggle)
+            sortImportance();
+        else
+            sortByDeadline();
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
     }
     public void listUpdater(Activity activity,ToDoList list) {
         list.addActivity(activity);
-        vboxAT.getChildren().clear();
-        for(Activity a : list.activityTasklist){
-            TaskBuilder build = new TaskBuilder(a, list, vboxAT);
-            build.addBox(vboxAT);
-        }
+
+        if(sortImportanceToggle)
+            sortImportance();
+        else
+            sortByDeadline();
+        SaveController.saveActivityToCSV(list.activityTasklist, "activities.csv");
     }
     public void listUpdater(Events event,ToDoList list) {
         list.addEvent(event);
-        vboxEV.getChildren().clear();
-        for(Events e : list.eventsList){
-            TaskBuilder build = new TaskBuilder(event, list, vboxEV);
-            build.addBox(vboxEV);
-        }
+
+        if(sortImportanceToggle)
+            sortImportance();
+        else
+            sortByDeadline();
+        SaveController.saveEventsToCSV(list.eventsList, "events.csv");
     }
 
     @Override
@@ -154,27 +175,37 @@ public class MainController implements Initializable {
 
     public void taskInitializer(ArrayList<Tasks> task) {
         for(Tasks t : task){
-            TaskBuilder build = new TaskBuilder(t, list, vboxTK);
+            TaskBuilder build = new TaskBuilder(t, list, vboxTK, gif);
             build.addBox(vboxTK);
         }
+        if(sortImportanceToggle)
+            sortImportance();
+        else
+            sortByDeadline();
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
     }
     public void activityInitializer(ArrayList<Activity> activity) {
         for(Activity a : activity){
-            TaskBuilder build = new TaskBuilder(a, list, vboxAT);
+            TaskBuilder build = new TaskBuilder(a, list, vboxAT, gif);
             build.addBox(vboxAT);
         }
+        if(sortImportanceToggle)
+            sortImportance();
+        else
+            sortByDeadline();
         SaveController.saveActivityToCSV(list.activityTasklist, "activities.csv");
     }
     public void eventInitializer(ArrayList<Events> event) {
         for(Events e : event){
-            TaskBuilder build = new TaskBuilder(e, list, vboxEV);
+            TaskBuilder build = new TaskBuilder(e, list, vboxEV, gif);
             build.addBox(vboxEV);
         }
+        if(sortImportanceToggle)
+            sortImportance();
+        else
+            sortByDeadline();
         SaveController.saveEventsToCSV(list.eventsList, "events.csv");
     }
-
-
 
     public void sortImportance(){
         System.out.println("Sorting");
@@ -185,20 +216,20 @@ public class MainController implements Initializable {
         vboxEV.getChildren().clear();
 
         for(Tasks t : list.taskList){
-            TaskBuilder build = new TaskBuilder(t, list, vboxTK);
+            TaskBuilder build = new TaskBuilder(t, list, vboxTK, gif);
             build.addBox(vboxTK);
         }
         for(Activity a : list.activityTasklist){
-            TaskBuilder build = new TaskBuilder(a, list, vboxAT);
+            TaskBuilder build = new TaskBuilder(a, list, vboxAT, gif);
             build.addBox(vboxAT);
         }
         for(Events e : list.eventsList){
-            TaskBuilder build = new TaskBuilder(e, list, vboxEV);
+            TaskBuilder build = new TaskBuilder(e, list, vboxEV, gif);
             build.addBox(vboxEV);
         }
-        SaveController.saveEventsToCSV(list.eventsList, "events.csv");
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
-        SaveController.saveActivityToCSV(list.activityTasklist, "events.csv");
+        SaveController.saveEventsToCSV(list.eventsList, "events.csv");
+        SaveController.saveActivityToCSV(list.activityTasklist, "activity.csv");
     }
 
     void sortByDeadline(){
@@ -209,20 +240,20 @@ public class MainController implements Initializable {
         vboxEV.getChildren().clear();
 
         for(Tasks t : list.taskList){
-            TaskBuilder build = new TaskBuilder(t, list, vboxTK);
+            TaskBuilder build = new TaskBuilder(t, list, vboxTK, gif);
             build.addBox(vboxTK);
         }
         for(Activity a : list.activityTasklist){
-            TaskBuilder build = new TaskBuilder(a, list, vboxAT);
+            TaskBuilder build = new TaskBuilder(a, list, vboxAT, gif);
             build.addBox(vboxAT);
         }
         for(Events e : list.eventsList){
-            TaskBuilder build = new TaskBuilder(e, list, vboxEV);
+            TaskBuilder build = new TaskBuilder(e, list, vboxEV, gif);
             build.addBox(vboxEV);
         }
-        SaveController.saveEventsToCSV(list.eventsList, "events.csv");
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
-        SaveController.saveActivityToCSV(list.activityTasklist, "events.csv");
+        SaveController.saveEventsToCSV(list.eventsList, "events.csv");
+        SaveController.saveActivityToCSV(list.activityTasklist, "activities.csv");
     }
 }
 

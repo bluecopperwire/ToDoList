@@ -28,7 +28,7 @@
                            <children>
                               <Pane layoutX="2.0" layoutY="58.0" prefHeight="244.0" prefWidth="218.0" style="-fx-background-color: #0f1f24;">
                                  <children>
-                                    <Button fx:id="options" layoutX="1.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="220.0" styleClass="button-hover-effect4" stylesheets="@style.css" textFill="WHITE">
+                                    <Button fx:id="options" layoutX="7.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="214.0" styleClass="button-hover-effect4" stylesheets="@style.css" textFill="WHITE">
                                        <font>
                                           <Font name="Yu Gothic UI Semibold" size="14.0" />
                                        </font>
@@ -45,21 +45,24 @@
                                                 </Label>
                                                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../../../images/Untitled-3Settings.png" />
+                                                      <Image url="@../../../images/Settings.png" />
                                                    </image>
                                                 </ImageView>
                                              </children>
                                           </HBox>
                                        </graphic>
                                     </Button>
+                                    <ImageView fx:id="gif" fitHeight="142.0" fitWidth="136.0" layoutX="43.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../Icons%20and%20Backsplash/Idle%20Animation2.gif" />
+                                       </image>
+                                    </ImageView>
                                  </children>
                               </Pane>
-
-                              <Button fx:id="addEvent" layoutX="6.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="217.0" style="-fx-background-color: #abbd8d;" text="Add Event" textFill="#082936" />
-
-                              <Button fx:id="sort" layoutX="6.0" layoutY="-1.0" mnemonicParsing="false" onAction="#sort" prefHeight="60.0" prefWidth="217.0" style="-fx-background-color: #0A625D;" text="Add Event" textFill="WHITE">
-
-                                 <font>
+                        
+                                    <Button fx:id="sortBy" layoutX="9.0" layoutY="6.0" mnemonicParsing="false" onAction="#toggle" prefHeight="53.0" prefWidth="213.0" styleClass="button-hover-effect5" stylesheets="@style.css" text="Sort By Priority" textFill="WHITE">
+                        
+                                       <font>
                                     <Font name="Yu Gothic UI Semibold" size="14.0" />
                                  </font>
                                  <effect>
@@ -111,9 +114,9 @@
          <center>
             <Pane prefHeight="535.0" prefWidth="531.0" style="-fx-background-color: #418E8E;" stylesheets="@style.css" BorderPane.alignment="CENTER">
                <children>
-                  <TabPane fx:id="mainTabPane" layoutY="134.0" prefHeight="409.0" prefWidth="550.0" style="-fx-background-color: #111111;" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
+                  <TabPane fx:id="mainTabPane" layoutY="134.0" prefHeight="409.0" prefWidth="550.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
                      <tabs>
-                        <Tab style="-fx-pref-width: 130; -fx-background-color: #2a5241; -fx-text-fill: white;" text="Tasks">
+                        <Tab fx:id="tasksTab" style="-fx-pref-width: 130; -fx-background-color: #2a5241; -fx-text-fill: white;" text="Tasks">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -137,6 +140,11 @@
                                           <Font name="Yu Gothic UI Semibold" size="12.0" />
                                        </font>
                                     </Label>
+                                    <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/Task.png" />
+                                       </image>
+                                    </ImageView>
                                  </children>
                               </HBox>
                            </graphic>
@@ -156,7 +164,7 @@
                            <graphic>
                               <HBox alignment="CENTER" prefHeight="41.0" prefWidth="120.0" spacing="6.0">
                                  <children>
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="115.0" text="    Activities" textFill="#082936">
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="72.0" text="    Activities" textFill="#082936">
                                        <font>
                                           <Font name="Yu Gothic UI Semibold" size="12.0" />
                                        </font>
@@ -185,11 +193,16 @@
                            <graphic>
                               <HBox alignment="CENTER" prefHeight="41.0" prefWidth="120.0" spacing="6.0">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="18.0" prefWidth="70.0" text="Events" textFill="#082936">
+                                    <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="53.0" text="Events" textFill="#082936">
                                        <font>
                                           <Font name="Yu Gothic UI Semibold" size="12.0" />
                                        </font>
                                     </Label>
+                                    <ImageView fitHeight="23.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/Event.png" />
+                                       </image>
+                                    </ImageView>
                                  </children>
                               </HBox>
                            </graphic>
@@ -230,7 +243,7 @@
                   </TabPane>
                   <ImageView fx:id="tabImageView" fitHeight="138.0" fitWidth="550.0">
                      <image>
-                        <Image url="@images/Activities.png" />
+                        <Image url="@../../../images/TimeTracker.png" />
                      </image></ImageView>
                </children>
                <effect>

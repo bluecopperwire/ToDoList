@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 
 
@@ -24,8 +25,11 @@ public class Main extends Application {
         mControl.setList(list);
 
         list.taskList = SaveController.loadTasksFromCSV("tasks.csv");
+
         list.activityTasklist = SaveController.loadActivitiesFromCSV("activities.csv");
+
         list.eventsList = SaveController.loadEventsFromCSV("events.csv");
+
 
         mControl.taskInitializer(list.taskList);
         mControl.eventInitializer(list.eventsList);
@@ -34,9 +38,25 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+        checkDeadlines(list);
     }
 
     public static void main(String[] args) {
         launch();
+    }
+    void checkDeadlines(ToDoList list){
+        Thread deadlineThread = new Thread(() -> {
+            while (true) {
+                try {
+                    // Sleep for some time before checking again (e.g., every minute)
+                    Thread.sleep(60000); // 60 seconds
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                list.deadLineChecker();
+            }
+        });
+        deadlineThread.setDaemon(true);  // This ensures the thread terminates when the app exits
+        deadlineThread.start();
     }
 }

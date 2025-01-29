@@ -24,6 +24,12 @@
     -fx-border-color: #222222;
     -fx-background-color: #418E8E;
 }
+.tab-pane:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
 .tab-header-background{
     -fx-background-color: #f7f1f3;
 }
@@ -34,40 +40,48 @@
 
 
 .task-hbox {
-    -fx-background-color: rgba(0, 100, 100, 0.5);  /* Light grey background */
+    -fx-background-color: #9a9e77;  /* Light grey background */
     -fx-padding: 5;               /* Padding inside the box */
-    -fx-spacing: 10;               /* Spacing between children */
-    -fx-border-color: #d0d0d0;     /* Light grey border */
+    -fx-spacing: 20;               /* Spacing between children */
+    -fx-border-color: transparent;     /* Light grey border */
     -fx-border-width: 1;           /* Border width */
     -fx-border-radius: 5;          /* Rounded corners */
     -fx-background-radius: 5;      /* Match rounded corners */
     -fx-alignment: center-left;
     -fx-min-width: 525;
     -fx-max-width: 525;
-    -fx-max-height: 70;
+    -fx-max-height: 50;
+    -fx-min-height: 50;
+    -fx-pref-height: 50;
 }
 .innerHbox{
-    -fx-background-color: #139A93;
-    -fx-padding: 10;
-    -fx-spacing: 10;
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 20;
     -fx-background-radius: 5;
     -fx-alignment: center;
-    -fx-min-width: 330;
+    -fx-max-height: 35;
+    -fx-min-height: 35;
+    -fx-pref-height: 35;
+    -fx-min-width: 290;
     -fx-margin: 10,10,10,10;
 }
 /* Style for the buttons inside the HBox */
 .task-hbox .button {
-    -fx-background-color: #A6E6E3; /* Blue background */
+    -fx-background-color: #ebe2dd; /* Blue background */
     -fx-text-fill: black;          /* White text */
     -fx-border-radius: 5;          /* Rounded corners */
-    -fx-background-radius: 5;
+    -fx-background-radius: 15;
     -fx-pref-width: 80;
     -fx-min-width: 80;
+    -fx-min-height: 18;
+    -fx-max-height:18;
+    -fx-pref-height: 18;
+    -fx-font-size: 10px;
 }
 
 /* Hover effect for buttons */
 .task-hbox .button:hover {
-    -fx-background-color: #2980b9; /* Darker blue on hover */
+    -fx-background-color: #eaefd9; /* Darker blue on hover */
 }
 
 .button-hover-effect2 {
@@ -91,6 +105,14 @@
     -fx-background-color: #d1c9c5; /* Background color on hover */ /* Change text color on hover */
 }
 .button-hover-effect4:hover {
+    -fx-background-color: #eaefd9; /* Background color on hover */
+    -fx-text-fill: brown; /* Change text color on hover */
+}
+.button-hover-effect5 {
+    -fx-background-color:  #0A625D;
+    -fx-text-fill: white;/* Background color on hover */ /* Change text color on hover */
+}
+.button-hover-effect5:hover {
     -fx-background-color: #eaefd9; /* Background color on hover */
     -fx-text-fill: brown; /* Change text color on hover */
 }
