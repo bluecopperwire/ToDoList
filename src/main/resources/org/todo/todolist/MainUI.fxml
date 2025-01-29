@@ -140,7 +140,7 @@
                                           <Font name="Yu Gothic UI Semibold" size="12.0" />
                                        </font>
                                     </Label>
-                                    <ImageView fitHeight="29.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../../images/Task.png" />
                                        </image>
@@ -164,7 +164,7 @@
                            <graphic>
                               <HBox alignment="CENTER" prefHeight="41.0" prefWidth="120.0" spacing="6.0">
                                  <children>
-                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="115.0" text="    Activities" textFill="#082936">
+                                    <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="72.0" text="    Activities" textFill="#082936">
                                        <font>
                                           <Font name="Yu Gothic UI Semibold" size="12.0" />
                                        </font>
@@ -193,7 +193,7 @@
                            <graphic>
                               <HBox alignment="CENTER" prefHeight="41.0" prefWidth="120.0" spacing="6.0">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="18.0" prefWidth="54.0" text="Events" textFill="#082936">
+                                    <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="53.0" text="Events" textFill="#082936">
                                        <font>
                                           <Font name="Yu Gothic UI Semibold" size="12.0" />
                                        </font>
