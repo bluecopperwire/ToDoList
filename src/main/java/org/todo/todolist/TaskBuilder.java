@@ -77,9 +77,9 @@ public class TaskBuilder {
     public void addBox(VBox vbox){
         vbox.setPadding(new Insets(10, 20, 15, 15));
         vbox.setSpacing(10);
-        Platform.runLater(() -> {
-            vbox.getChildren().add(box);
-        });
+
+        vbox.getChildren().add(box);
+
     }
     public String getImportance(ToDoList.Hierarchy priority){
         if(priority == null) return "Low";

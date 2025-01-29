@@ -27,7 +27,7 @@ public class MainController implements Initializable {
     private ScrollPane activitiesPane;
 
     @FXML
-    private Button sort;
+    private Button sortBy;
 
     @FXML
     private Button addTask;
@@ -63,6 +63,9 @@ public class MainController implements Initializable {
     private ImageView tabImageView;
 
     ToDoList list;
+
+    private boolean sortImportanceToggle = false;
+
     @FXML
     void sort(ActionEvent event){
         sortImportance();
@@ -70,6 +73,18 @@ public class MainController implements Initializable {
     }
     public void setList(ToDoList list){
         this.list = list;
+    }
+
+    @FXML
+    public void toggle(ActionEvent event){
+        if(sortImportanceToggle) {
+            sortByDeadline(); // Sort by deadline when toggling off
+            sortBy.setText("Sort By Priority");
+        } else {
+            sortImportance(); // Sort by importance when toggling on
+            sortBy.setText("Sort By Deadline");
+        }
+        sortImportanceToggle = !sortImportanceToggle; // Toggle the flag
     }
 
     public void addTaskPane(ActionEvent event) throws IOException {
@@ -94,6 +109,10 @@ public class MainController implements Initializable {
             TaskBuilder build = new TaskBuilder(t, list, vboxTK);
             build.addBox(vboxTK);
         }
+        if(sortImportanceToggle)
+            sortImportance();
+        else
+            sortByDeadline();
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
     }
     public void listUpdater(Activity activity,ToDoList list) {
@@ -103,6 +122,10 @@ public class MainController implements Initializable {
             TaskBuilder build = new TaskBuilder(a, list, vboxAT);
             build.addBox(vboxAT);
         }
+        if(sortImportanceToggle)
+            sortImportance();
+        else
+            sortByDeadline();
     }
     public void listUpdater(Events event,ToDoList list) {
         list.addEvent(event);
@@ -111,6 +134,10 @@ public class MainController implements Initializable {
             TaskBuilder build = new TaskBuilder(event, list, vboxEV);
             build.addBox(vboxEV);
         }
+        if(sortImportanceToggle)
+            sortImportance();
+        else
+            sortByDeadline();
     }
 
     @Override
@@ -157,6 +184,10 @@ public class MainController implements Initializable {
             TaskBuilder build = new TaskBuilder(t, list, vboxTK);
             build.addBox(vboxTK);
         }
+        if(sortImportanceToggle)
+            sortImportance();
+        else
+            sortByDeadline();
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
     }
     public void activityInitializer(ArrayList<Activity> activity) {
@@ -164,6 +195,10 @@ public class MainController implements Initializable {
             TaskBuilder build = new TaskBuilder(a, list, vboxAT);
             build.addBox(vboxAT);
         }
+        if(sortImportanceToggle)
+            sortImportance();
+        else
+            sortByDeadline();
         SaveController.saveActivityToCSV(list.activityTasklist, "activities.csv");
     }
     public void eventInitializer(ArrayList<Events> event) {
@@ -171,6 +206,10 @@ public class MainController implements Initializable {
             TaskBuilder build = new TaskBuilder(e, list, vboxEV);
             build.addBox(vboxEV);
         }
+        if(sortImportanceToggle)
+            sortImportance();
+        else
+            sortByDeadline();
         SaveController.saveEventsToCSV(list.eventsList, "events.csv");
     }
 

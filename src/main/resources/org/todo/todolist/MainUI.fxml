@@ -28,7 +28,7 @@
                            <children>
                               <Pane layoutX="2.0" layoutY="58.0" prefHeight="244.0" prefWidth="218.0" style="-fx-background-color: #0f1f24;">
                                  <children>
-                                    <Button fx:id="options" layoutX="1.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="220.0" styleClass="button-hover-effect4" stylesheets="@style.css" textFill="WHITE">
+                                    <Button fx:id="options" layoutX="7.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="214.0" styleClass="button-hover-effect4" stylesheets="@style.css" textFill="WHITE">
                                        <font>
                                           <Font name="Yu Gothic UI Semibold" size="14.0" />
                                        </font>
@@ -54,12 +54,10 @@
                                     </Button>
                                  </children>
                               </Pane>
-
-                              <Button fx:id="addEvent" layoutX="6.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="217.0" style="-fx-background-color: #abbd8d;" text="Add Event" textFill="#082936" />
-
-                              <Button fx:id="sort" layoutX="6.0" layoutY="-1.0" mnemonicParsing="false" onAction="#sort" prefHeight="60.0" prefWidth="217.0" style="-fx-background-color: #0A625D;" text="Add Event" textFill="WHITE">
-
-                                 <font>
+                        
+                                    <Button fx:id="sortBy" layoutX="9.0" layoutY="6.0" mnemonicParsing="false" onAction="#toggle" prefHeight="53.0" prefWidth="213.0" styleClass="button-hover-effect5" stylesheets="@style.css" text="Sort By Priority" textFill="WHITE">
+                        
+                                       <font>
                                     <Font name="Yu Gothic UI Semibold" size="14.0" />
                                  </font>
                                  <effect>
@@ -230,7 +228,7 @@
                   </TabPane>
                   <ImageView fx:id="tabImageView" fitHeight="138.0" fitWidth="550.0">
                      <image>
-                        <Image url="@images/Activities.png" />
+                        <Image url="@../../../images/TimeTracker.png" />
                      </image></ImageView>
                </children>
                <effect>

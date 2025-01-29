@@ -94,4 +94,12 @@
     -fx-background-color: #eaefd9; /* Background color on hover */
     -fx-text-fill: brown; /* Change text color on hover */
 }
+.button-hover-effect5 {
+    -fx-background-color:  #0A625D;
+    -fx-text-fill: white;/* Background color on hover */ /* Change text color on hover */
+}
+.button-hover-effect5:hover {
+    -fx-background-color: #eaefd9; /* Background color on hover */
+    -fx-text-fill: brown; /* Change text color on hover */
+}
 
