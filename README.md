@@ -68,7 +68,7 @@ Rhomer Siegfred Agustin - rhomersiegfred.agustin254591@gmail.com<br>
 Aldwin Paul Lopez - lopezaldwinpaul08@gmail.com<br>
 Franz Jearson De Limos - franzjearson@gmail.com<br>
 Zyryl Boquiren - boquirenzyryl.r@gmail.com<br>
-John Cezar C. Barrameda - <br>
+John Cezar C. Barrameda - barramedajohncezarc@gmail.com<br>
 Christian Vicedo - christianvicedo12@gmail.com<br>
 
 
