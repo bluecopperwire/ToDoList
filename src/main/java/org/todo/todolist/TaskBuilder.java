@@ -141,13 +141,15 @@ public class TaskBuilder {
 
         rightPanel.getChildren().add(deadlinebox);
         buttonBox.getChildren().addAll(finish, delete);
+        buttonBox.setSpacing(5);
         rightPanel.getChildren().add(buttonBox);
-
-        innerBox.getChildren().addAll(nameBox, rightPanel);
+        rightPanel.setSpacing(5);
+        rightPanel.setStyle("-fx-padding: 4");
+        innerBox.getChildren().addAll(name, rightPanel);
         box.getStyleClass().add("task-hbox");
         innerBox.getStyleClass().add("innerHbox");
 
-        box.getChildren().addAll(innerBox, finish, delete);
+        box.getChildren().addAll(innerBox, rightPanel);
 
         finish.setOnAction(event -> deleteEvent(events, list, container));
         delete.setOnAction(event -> deleteEvent(events, list, container));

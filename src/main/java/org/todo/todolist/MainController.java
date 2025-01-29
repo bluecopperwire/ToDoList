@@ -128,6 +128,7 @@ public class MainController implements Initializable {
             sortImportance();
         else
             sortByDeadline();
+        SaveController.saveActivityToCSV(list.activityTasklist, "activities.csv");
     }
     public void listUpdater(Events event,ToDoList list) {
         list.addEvent(event);
@@ -140,6 +141,7 @@ public class MainController implements Initializable {
             sortImportance();
         else
             sortByDeadline();
+        SaveController.saveEventsToCSV(list.eventsList, "events.csv");
     }
 
     @Override
@@ -237,7 +239,7 @@ public class MainController implements Initializable {
         }
         SaveController.saveEventsToCSV(list.eventsList, "events.csv");
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
-        SaveController.saveActivityToCSV(list.activityTasklist, "events.csv");
+        SaveController.saveActivityToCSV(list.activityTasklist, "activity.csv");
     }
 
     void sortByDeadline(){
@@ -261,7 +263,7 @@ public class MainController implements Initializable {
         }
         SaveController.saveEventsToCSV(list.eventsList, "events.csv");
         SaveController.saveTasksToCSV(list.taskList, "tasks.csv");
-        SaveController.saveActivityToCSV(list.activityTasklist, "events.csv");
+        SaveController.saveActivityToCSV(list.activityTasklist, "activity.csv");
     }
 }
 
